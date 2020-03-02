@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood edit" translatesAutoresizingMaskIntoConstraints="NO" id="zik-r5-DZA">
+                                <rect key="frame" x="0.0" y="-447" width="414" height="1800"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconTruco" translatesAutoresizingMaskIntoConstraints="NO" id="qDZ-ju-c9Q">
+                                <rect key="frame" x="60" y="301" width="294" height="294"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qDZ-ju-c9Q" secondAttribute="height" multiplier="1:1" id="dGz-b9-ggl"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qDZ-ju-c9Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="0Nd-p6-WL4"/>
+                            <constraint firstItem="qDZ-ju-c9Q" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6cE-fH-cnS"/>
+                            <constraint firstItem="zik-r5-DZA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ad9-A7-Dwy"/>
+                            <constraint firstItem="zik-r5-DZA" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="2.00893" id="kJV-h3-3i9"/>
+                            <constraint firstItem="zik-r5-DZA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="lvf-E8-EsP"/>
+                            <constraint firstItem="qDZ-ju-c9Q" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mN6-SS-at7"/>
+                            <constraint firstItem="zik-r5-DZA" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="r0G-30-qIf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qDZ-ju-c9Q" secondAttribute="trailing" constant="60" id="vGa-x4-GmB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="IconTruco" width="535" height="535"/>
+        <image name="wood edit" width="640" height="1800"/>
+    </resources>
+</document>
