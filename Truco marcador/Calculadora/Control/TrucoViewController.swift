@@ -279,11 +279,16 @@ class TrucoViewController: UIViewController {
             self.performSegue(withIdentifier: "optionsSeg", sender: nil)
         })
         
+        let SoundAction = UIAlertAction(title: "Som", style: .default, handler: { (action) -> Void in
+            self.performSegue(withIdentifier: "soundSeg", sender: nil)
+        })
+        
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
         
         optionMenu.addAction(ResetGame)
         optionMenu.addAction(GoOrdemDasCartas)
         optionMenu.addAction(EditAction)
+        optionMenu.addAction(SoundAction)
         
         optionMenu.addAction(cancelAction)
         
