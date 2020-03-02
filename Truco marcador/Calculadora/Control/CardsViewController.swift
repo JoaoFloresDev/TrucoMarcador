@@ -52,6 +52,8 @@ class CardsViewController: UIViewController {
             Gaudério.alpha = 0
            paulistaList.alpha = 1
            mineiro.alpha = 0
-
     }
+    
+//    teste
+    
 }
