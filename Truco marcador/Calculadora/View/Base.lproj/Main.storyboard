@@ -616,18 +616,10 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow (1)" translatesAutoresizingMaskIntoConstraints="NO" id="kKd-wy-eQV">
-                                        <rect key="frame" x="275.5" y="311" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="meg-QC-y54"/>
-                                            <constraint firstAttribute="width" secondItem="kKd-wy-eQV" secondAttribute="height" multiplier="1:1" id="z9z-Nf-OOa"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="gyW-H2-XuG" firstAttribute="centerX" secondItem="DEL-qK-JU5" secondAttribute="centerX" id="0Dy-Dk-yzH"/>
                                     <constraint firstItem="QpO-LP-WMQ" firstAttribute="top" secondItem="MD7-V5-Sfv" secondAttribute="bottom" id="0GI-Se-e5s"/>
-                                    <constraint firstItem="kKd-wy-eQV" firstAttribute="centerY" secondItem="cjT-vF-r5b" secondAttribute="centerY" id="0Uj-NR-jhx"/>
                                     <constraint firstItem="G0T-uH-5HS" firstAttribute="top" secondItem="oz3-IH-jhR" secondAttribute="bottom" id="4jZ-hs-63M"/>
                                     <constraint firstItem="rci-TU-peg" firstAttribute="leading" secondItem="tSU-gi-cgG" secondAttribute="trailing" constant="10" id="B8M-0z-Lr8"/>
                                     <constraint firstItem="2Tq-eT-sNn" firstAttribute="top" secondItem="cjT-vF-r5b" secondAttribute="bottom" id="BkF-5x-adD"/>
@@ -651,7 +643,6 @@
                                     <constraint firstItem="DxG-2A-e2D" firstAttribute="centerX" secondItem="DEL-qK-JU5" secondAttribute="centerX" id="UPl-2j-1CN"/>
                                     <constraint firstItem="sBk-Sh-QfC" firstAttribute="leading" secondItem="rci-TU-peg" secondAttribute="trailing" constant="10" id="W6D-Rg-jUk"/>
                                     <constraint firstItem="tSU-gi-cgG" firstAttribute="centerY" secondItem="Sy4-OG-fuM" secondAttribute="centerY" id="bcv-jq-0iB"/>
-                                    <constraint firstItem="kKd-wy-eQV" firstAttribute="centerX" secondItem="DEL-qK-JU5" secondAttribute="centerX" multiplier="1.5" id="ca8-13-7uR"/>
                                     <constraint firstItem="MD7-V5-Sfv" firstAttribute="centerX" secondItem="DEL-qK-JU5" secondAttribute="centerX" id="d4s-Y0-4vQ"/>
                                     <constraint firstItem="G0T-uH-5HS" firstAttribute="centerX" secondItem="DEL-qK-JU5" secondAttribute="centerX" id="ddz-eM-7Eb"/>
                                     <constraint firstItem="6cv-g4-g6e" firstAttribute="centerX" secondItem="DEL-qK-JU5" secondAttribute="centerX" id="dms-cQ-PEe"/>
@@ -1107,7 +1098,6 @@
         <image name="iconSueca" width="728" height="728"/>
         <image name="ouro" width="256" height="256"/>
         <image name="paus" width="256" height="256"/>
-        <image name="right-arrow (1)" width="512" height="512"/>
         <image name="swipe down" width="512" height="512"/>
         <image name="swipe up" width="512" height="512"/>
         <image name="touch" width="512" height="512"/>
