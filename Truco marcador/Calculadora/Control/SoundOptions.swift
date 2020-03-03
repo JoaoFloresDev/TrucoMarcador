@@ -27,7 +27,6 @@ class Settings: UIViewController {
     @IBAction func close(_ sender: Any) {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
-    
     }
     
     // MARK: Variables
@@ -100,6 +99,6 @@ extension Settings: UIPickerViewDataSource {
         return pickerValues[row]
     }
     
-    
+//    defaults.set (newUsTeamName, forKey: "usTeamName")
 }
 

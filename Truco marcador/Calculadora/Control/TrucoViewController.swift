@@ -8,22 +8,17 @@
 
 import UIKit
 import StoreKit
+import AVFoundation
 
-/// View Controller que implementa CalculatorDisplay
-/// para exibir o resultado da Calculadora
-class TrucoViewController: UIViewController {
+class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
+    
+    let synth = AVSpeechSynthesizer()
     
     var lastPoint = CGPoint.zero
     var color = UIColor.white
     var brushWidth: CGFloat = 15.0
     var opacity: CGFloat = 0.5
     var swiped = false
-
-    @IBOutlet weak var mainImageView: UIImageView!
-    @IBOutlet weak var tempImageView: UIImageView!
-    
-    @IBOutlet weak var usTeamName: UILabel!
-    @IBOutlet weak var theyTeamName: UILabel!
     
     var partida: PointsClass!
     var defaults = UserDefaults.standard
@@ -37,7 +32,13 @@ class TrucoViewController: UIViewController {
     var inAnimate = true
     var ratingShow = false
     
-    //    Images Tutorial
+    //    MARK: -  IBOutlet
+    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var tempImageView: UIImageView!
+    
+    @IBOutlet weak var usTeamName: UILabel!
+    @IBOutlet weak var theyTeamName: UILabel!
+    
     @IBOutlet weak var backGroundBlack: UIImageView!
     @IBOutlet var LabelsTutorial: [UILabel]!
     @IBOutlet var ImagesTutorial: [UIImageView]!
@@ -51,26 +52,23 @@ class TrucoViewController: UIViewController {
     @IBOutlet weak var gamesTeam1: UILabel!
     @IBOutlet weak var gamesTeam2: UILabel!
     
-    //    MARK: ARCTIONS
+    //    MARK: - IBAction
     @IBAction func finishTutorial(_ sender: Any) {
         backGroundBlack.alpha = 0
         for x in 0 ... 2 {
             LabelsTutorial[x].alpha = 0
             ImagesTutorial[x].alpha = 0
         }
-        buttonTutorial.alpha = 0
         
+        buttonTutorial.alpha = 0
         inAnimate = false
     }
     
-    // MENU
     @IBAction func home(_ sender: Any) {
         showMenu()
     }
 
-    
-    
-    //   MARK: LIFE CYCLE
+    //   MARK: - LIFE CYCLE
     override func viewDidLoad() {
         self.ratingShow = OptionsViewController().checkFirsGame()
         atualizeNamesTeams()
@@ -90,16 +88,16 @@ class TrucoViewController: UIViewController {
         self.view.addGestureRecognizer(swipeDown)
     }
     
-    //   MARK: GESTURES
+    //   MARK: - GESTURES
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if !(inAnimate) {
             if gesture.direction == UISwipeGestureRecognizer.Direction.up {
                 if(gesture.location(in: backGoundImg).x < backGoundImg.frame.size.width/2) {
                     partida.round1Sum3()
-//                    partida.roundT1 = partida.sum3(round: partida.roundT1)
-                    
+                    SpeechPoints (points: "Tres pontos", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sum3(round: partida.roundT2)
+                    SpeechPoints (points: "Tres pontos", team: theyTeamName.text!)
                 }
                 
                 let currentPoint = gesture.location(in: view)
@@ -111,9 +109,10 @@ class TrucoViewController: UIViewController {
             else if gesture.direction == UISwipeGestureRecognizer.Direction.down {
                 if (gesture.location(in: backGoundImg).x < backGoundImg.frame.width/2) {
                     partida.roundT1 = partida.sub1(round: partida.roundT1)
-                    
+                    SpeechPoints (points: "Menos um ponto", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sub1(round: partida.roundT2)
+                    SpeechPoints (points: "Menos um ponto", team: theyTeamName.text!)
                 }
                 
                 let currentPoint = gesture.location(in: view)
@@ -136,8 +135,10 @@ class TrucoViewController: UIViewController {
         if !(inAnimate) {
             if(gesture.location(in: nil).x < backGoundImg.frame.size.width/2) {
                 partida.roundT1 = partida.sum1(round: partida.roundT1)
+                SpeechPoints(points: "Um ponto",team: usTeamName.text!)
             } else {
                 partida.roundT2 = partida.sum1(round: partida.roundT2)
+                SpeechPoints(points: "Um ponto",team: theyTeamName.text!)
             }
             
             if(partida.checkEndGame()) {
@@ -155,7 +156,8 @@ class TrucoViewController: UIViewController {
         lastPoint = currentPoint
     }
     
-    //    MARK: ANIMATIONS
+    //    MARK: - ANIMATIONS
+    
     func animate() {
         winner = roundTeam2
         increasing = true
@@ -170,7 +172,6 @@ class TrucoViewController: UIViewController {
     }
     
     @objc func sizeAnimate() {
-        
         if (increasing) { sizeFont += 1 }
         else { sizeFont -= 1 }
         
@@ -210,7 +211,6 @@ class TrucoViewController: UIViewController {
     }
     
     @objc func sizeAnimate2() {
-        
         if (increasing) { sizeFont += 1 }
         else { sizeFont -= 1 }
         
@@ -228,7 +228,7 @@ class TrucoViewController: UIViewController {
     }
     
     
-    //    MARK: POINTS MANAGER
+    //    MARK: - POINTS MANAGER
     func refreshScores() {
         roundTeam1.text = String(partida.roundT1)
         roundTeam2.text = String(self.partida.roundT2)
@@ -244,7 +244,7 @@ class TrucoViewController: UIViewController {
         refreshScores()
     }
     
-    //    MARK: ALERTS
+    //    MARK: - ALERTS
     func ConfirmationReset() {
         let refreshAlert = UIAlertController(title: "Deseja reiniciar a partida?", message: nil, preferredStyle: UIAlertController.Style.alert)
         
@@ -318,12 +318,25 @@ class TrucoViewController: UIViewController {
         }
         ratingShow = false
     }
+
+    // MARK: - Speech
     
+    func SpeechPoints (points: String, team: String) {
+        
+        if !synth.isSpeaking && defaults.bool(forKey: "SomAtivo") {
+        
+                let myUtterance = AVSpeechUtterance(string: "\(points) PARA \(team)")
+                myUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+                myUtterance.rate = 0.5
+                myUtterance.pitchMultiplier = 0.4
+                myUtterance.volume = 1
+                myUtterance.postUtteranceDelay =  0
+                
+                synth.speak(myUtterance)
+        }
+    }
     
-    
-    
-    
-//    --------------------------------------
+    // MARK: - Draw
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
       guard let touch = touches.first else {
@@ -339,27 +352,24 @@ class TrucoViewController: UIViewController {
     }
     
     func drawLine(from fromPoint: CGPoint, to toPoint: CGPoint) {
-      // 1
+        
       UIGraphicsBeginImageContext(view.frame.size)
       guard let context = UIGraphicsGetCurrentContext() else {
         return
       }
+        
       tempImageView.image?.draw(in: view.bounds)
         
-      // 2
       context.move(to: fromPoint)
       context.addLine(to: toPoint)
       
-      // 3
       context.setLineCap(.round)
       context.setBlendMode(.normal)
       context.setLineWidth(brushWidth)
       context.setStrokeColor(color.cgColor)
       
-      // 4
       context.strokePath()
       
-      // 5
       tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         tempImageView.alpha = 0.5
       
@@ -398,7 +408,3 @@ class TrucoViewController: UIViewController {
         }
     }
 }
-
-//1486427751
-//joaoFlores.TrucoContador
-//https://itunes.apple.com/lookup?id=361309726
