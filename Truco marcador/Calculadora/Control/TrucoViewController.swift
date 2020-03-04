@@ -94,6 +94,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             if gesture.direction == UISwipeGestureRecognizer.Direction.up {
                 if(gesture.location(in: backGoundImg).x < backGoundImg.frame.size.width/2) {
                     partida.round1Sum3()
+                    print("falando pontos")
                     SpeechPoints (points: "Tres pontos", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sum3(round: partida.roundT2)
