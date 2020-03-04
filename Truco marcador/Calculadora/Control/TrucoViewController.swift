@@ -91,10 +91,10 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     //   MARK: - GESTURES
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if !(inAnimate) {
+            
             if gesture.direction == UISwipeGestureRecognizer.Direction.up {
                 if(gesture.location(in: backGoundImg).x < backGoundImg.frame.size.width/2) {
                     partida.round1Sum3()
-                    print("falando pontos")
                     SpeechPoints (points: "Tres pontos", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sum3(round: partida.roundT2)
@@ -123,6 +123,11 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             }
             
             if(partida.checkEndGame()) {
+                if(partida.finshScoreboard() == 1) {
+                    SpeechVictory(team: usTeamName.text!)
+                } else {
+                    SpeechVictory(team: theyTeamName.text!)
+                }
                 inAnimate = true
                 animate()
                 
@@ -326,16 +331,32 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         
         if !synth.isSpeaking && defaults.bool(forKey: "SomAtivo") {
         
-                let myUtterance = AVSpeechUtterance(string: "\(points) PARA \(team)")
-                myUtterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
-                myUtterance.rate = 0.5
-                myUtterance.pitchMultiplier = 0.4
-                myUtterance.volume = 1
-                myUtterance.postUtteranceDelay =  0
-                
-                synth.speak(myUtterance)
+            let myUtterance = AVSpeechUtterance(string: "\(points) PARA \(team)")
+            myUtterance.voice = AVSpeechSynthesisVoice(language: defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+            myUtterance.rate = defaults.float(forKey: "rateValue")
+            myUtterance.pitchMultiplier = defaults.float(forKey: "pitchValue")
+            myUtterance.volume = 1
+            myUtterance.postUtteranceDelay =  0
+            
+            synth.speak(myUtterance)
         }
     }
+    
+    func SpeechVictory (team: String) {
+        
+        if defaults.bool(forKey: "SomAtivo") {
+        
+            let myUtterance = AVSpeechUtterance(string: "Fim de jogo, time \(team) é o vencedor")
+            myUtterance.voice = AVSpeechSynthesisVoice(language: defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+            myUtterance.rate = defaults.float(forKey: "rateValue")
+            myUtterance.pitchMultiplier = defaults.float(forKey: "pitchValue")
+            myUtterance.volume = 1
+            myUtterance.postUtteranceDelay =  0
+            
+            synth.speak(myUtterance)
+        }
+    }
+    
     
     // MARK: - Draw
     

@@ -23,7 +23,13 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var maxPointsTextBox: UITextField!
     
     @IBAction func suecaMKT(_ sender: Any) {
-        UIApplication.shared.openURL(NSURL(string: "itms://itunes.apple.com/de/app/x-gift/id1491372792?mt=8&uo=4")! as URL)
+        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1491372792?mt=8&uo=4"
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+
+        } else {
+            UIApplication.shared.openURL(URL(string: urlStr)!)
+        }
     }
     
     //MARK: - LIFECYCLE

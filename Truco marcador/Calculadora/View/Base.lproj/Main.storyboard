@@ -1027,7 +1027,7 @@
         <!--Settings-->
         <scene sceneID="MxF-w5-Vct">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="wcD-ML-3zf" customClass="Settings" customModule="Speech" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="wcD-ML-3zf" customClass="Settings" customModule="Truco_Marcador" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mnl-1o-Goa"/>
                         <viewControllerLayoutGuide type="bottom" id="xIJ-9Z-JIY"/>
@@ -1040,24 +1040,24 @@
                                 <rect key="frame" x="0.0" y="-443" width="414" height="1792"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVN-E6-YCE" userLabel="RateSlider">
-                                <rect key="frame" x="20" y="142" width="374" height="108"/>
+                                <rect key="frame" x="20" y="363" width="374" height="173"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="liW-T4-3bs">
-                                        <rect key="frame" x="8" y="68" width="358" height="31"/>
+                                        <rect key="frame" x="8" y="133" width="358" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="sliderRateUpdatingValue:" destination="wcD-ML-3zf" eventType="valueChanged" id="Ib7-bl-Fgw"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-VU-3ZB">
-                                        <rect key="frame" x="326.5" y="40.5" width="27.5" height="27"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
+                                        <rect key="frame" x="315" y="67.5" width="39" height="38.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="27"/>
                                         <color key="textColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="741-IM-l3M">
-                                        <rect key="frame" x="20" y="40.5" width="90.5" height="27"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
+                                        <rect key="frame" x="20" y="69" width="127.5" height="35.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                         <color key="textColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1074,24 +1074,24 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YmJ-nB-CAq" userLabel="PitchSlider">
-                                <rect key="frame" x="20" y="250" width="374" height="108"/>
+                                <rect key="frame" x="20" y="536" width="374" height="173"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="lzp-GI-J2J">
-                                        <rect key="frame" x="8" y="68" width="358" height="31"/>
+                                        <rect key="frame" x="8" y="133" width="358" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="sliderPitchUpdatingValue:" destination="wcD-ML-3zf" eventType="valueChanged" id="vk6-Z4-5vu"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVV-WZ-N5x">
-                                        <rect key="frame" x="326.5" y="40.5" width="27.5" height="27"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
+                                        <rect key="frame" x="315" y="67.5" width="39" height="38.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="27"/>
                                         <color key="textColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timbre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK8-Cm-QvG">
-                                        <rect key="frame" x="20" y="40.5" width="58" height="27"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
+                                        <rect key="frame" x="20" y="69" width="79" height="35.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                         <color key="textColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1107,11 +1107,6 @@
                                     <constraint firstAttribute="bottom" secondItem="lzp-GI-J2J" secondAttribute="bottom" constant="10" id="kHK-Un-L7O"/>
                                 </constraints>
                             </view>
-                            <pickerView clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eB3-lE-m0d">
-                                <rect key="frame" x="0.0" y="680" width="414" height="216"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="tintColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hj-a5-fKv">
                                 <rect key="frame" x="348" y="54" width="56" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -1121,16 +1116,19 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3L-FQ-ieZ">
-                                <rect key="frame" x="0.0" y="98" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ativar Som" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZE-lv-3bI">
-                                        <rect key="frame" x="10" y="11.5" width="83" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="10" y="10" width="129.5" height="35.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Key-d0-IQd">
-                                        <rect key="frame" x="355" y="6.5" width="51" height="31"/>
+                                        <rect key="frame" x="355" y="12" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="activeSound:" destination="wcD-ML-3zf" eventType="valueChanged" id="Jhd-Qd-qmW"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94322486227288893" green="0.94322486227288893" blue="0.94322486227288893" alpha="0.58179257892057024" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1139,16 +1137,24 @@
                                     <constraint firstAttribute="trailing" secondItem="Key-d0-IQd" secondAttribute="trailing" constant="10" id="Pyx-xa-1zw"/>
                                     <constraint firstItem="KZE-lv-3bI" firstAttribute="centerY" secondItem="V3L-FQ-ieZ" secondAttribute="centerY" id="emL-8d-QM1"/>
                                     <constraint firstItem="Key-d0-IQd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KZE-lv-3bI" secondAttribute="trailing" constant="8" symbolic="YES" id="h5W-IV-s7a"/>
-                                    <constraint firstAttribute="height" constant="44" id="ibF-8o-P0f"/>
+                                    <constraint firstAttribute="height" constant="55" id="ibF-8o-P0f"/>
                                     <constraint firstItem="Key-d0-IQd" firstAttribute="centerY" secondItem="V3L-FQ-ieZ" secondAttribute="centerY" id="pS1-SB-2VW"/>
                                 </constraints>
                             </view>
+                            <pickerView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eB3-lE-m0d">
+                                <rect key="frame" x="0.0" y="163" width="414" height="200"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="tintColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="58T-H9-pON"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VLh-qe-g1v" firstAttribute="centerY" secondItem="DDY-4E-hfa" secondAttribute="centerY" id="0kH-JS-vV1"/>
-                            <constraint firstAttribute="bottom" secondItem="eB3-lE-m0d" secondAttribute="bottom" id="1bS-Im-aSO"/>
                             <constraint firstItem="VLh-qe-g1v" firstAttribute="width" secondItem="SaQ-Jn-CFM" secondAttribute="width" id="8rD-4l-twn"/>
+                            <constraint firstItem="eB3-lE-m0d" firstAttribute="top" secondItem="V3L-FQ-ieZ" secondAttribute="bottom" id="GDn-rT-NGa"/>
                             <constraint firstItem="eB3-lE-m0d" firstAttribute="leading" secondItem="SaQ-Jn-CFM" secondAttribute="leading" id="JAf-hP-nS7"/>
                             <constraint firstItem="VLh-qe-g1v" firstAttribute="height" secondItem="SaQ-Jn-CFM" secondAttribute="height" multiplier="2" id="NpQ-Nw-r8w"/>
                             <constraint firstItem="XVN-E6-YCE" firstAttribute="height" secondItem="YmJ-nB-CAq" secondAttribute="height" id="R7I-Wa-UHI"/>
@@ -1157,12 +1163,14 @@
                             <constraint firstItem="YmJ-nB-CAq" firstAttribute="trailing" secondItem="SaQ-Jn-CFM" secondAttribute="trailingMargin" id="TCJ-SH-SeZ"/>
                             <constraint firstItem="VLh-qe-g1v" firstAttribute="centerX" secondItem="DDY-4E-hfa" secondAttribute="centerX" id="U6b-aU-c0R"/>
                             <constraint firstItem="6hj-a5-fKv" firstAttribute="top" secondItem="mnl-1o-Goa" secondAttribute="bottom" constant="10" id="Ulo-JE-7v4"/>
-                            <constraint firstItem="XVN-E6-YCE" firstAttribute="top" secondItem="V3L-FQ-ieZ" secondAttribute="bottom" id="YhF-7r-9Kd"/>
-                            <constraint firstItem="V3L-FQ-ieZ" firstAttribute="top" secondItem="6hj-a5-fKv" secondAttribute="bottom" constant="10" id="amt-BO-DlP"/>
-                            <constraint firstItem="XVN-E6-YCE" firstAttribute="height" secondItem="eB3-lE-m0d" secondAttribute="height" multiplier="0.5" id="eTO-0g-D2f"/>
+                            <constraint firstItem="XVN-E6-YCE" firstAttribute="top" secondItem="eB3-lE-m0d" secondAttribute="bottom" id="Y27-5Z-WU2"/>
+                            <constraint firstItem="V3L-FQ-ieZ" firstAttribute="top" secondItem="6hj-a5-fKv" secondAttribute="bottom" constant="20" id="amt-BO-DlP"/>
+                            <constraint firstItem="eB3-lE-m0d" firstAttribute="centerX" secondItem="SaQ-Jn-CFM" secondAttribute="centerX" id="b6F-vz-2mV"/>
+                            <constraint firstItem="XVN-E6-YCE" firstAttribute="height" secondItem="SaQ-Jn-CFM" secondAttribute="height" multiplier="0.19308" id="epi-2W-8Qn"/>
                             <constraint firstItem="YmJ-nB-CAq" firstAttribute="top" secondItem="XVN-E6-YCE" secondAttribute="bottom" id="fJc-vd-344"/>
                             <constraint firstItem="DDY-4E-hfa" firstAttribute="trailing" secondItem="V3L-FQ-ieZ" secondAttribute="trailing" id="ie7-Us-ean"/>
                             <constraint firstAttribute="trailing" secondItem="6hj-a5-fKv" secondAttribute="trailing" constant="10" id="mGb-gZ-NUt"/>
+                            <constraint firstItem="YmJ-nB-CAq" firstAttribute="height" secondItem="SaQ-Jn-CFM" secondAttribute="height" multiplier="0.19308" id="mMO-k7-7wV"/>
                             <constraint firstAttribute="trailing" secondItem="eB3-lE-m0d" secondAttribute="trailing" id="qtb-mC-h4x"/>
                             <constraint firstItem="XVN-E6-YCE" firstAttribute="leading" secondItem="SaQ-Jn-CFM" secondAttribute="leadingMargin" id="spl-I4-u3v"/>
                             <constraint firstItem="6hj-a5-fKv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DDY-4E-hfa" secondAttribute="leading" symbolic="YES" id="vJh-0q-7g2"/>
@@ -1179,6 +1187,7 @@
                         <outlet property="pitchValueSlider" destination="lzp-GI-J2J" id="Ilg-v7-Euq"/>
                         <outlet property="rateValueLabel" destination="R0D-VU-3ZB" id="4x0-gF-h4R"/>
                         <outlet property="rateValueSlider" destination="liW-T4-3bs" id="Vip-wU-PgA"/>
+                        <outlet property="switchButton" destination="Key-d0-IQd" id="dKD-9D-A4T"/>
                         <outlet property="voiceSelected" destination="eB3-lE-m0d" id="vxJ-gw-VGA"/>
                     </connections>
                 </viewController>
