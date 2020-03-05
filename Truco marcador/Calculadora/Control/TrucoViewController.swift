@@ -31,7 +31,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var regularFont = 60
     var inAnimate = true
     var ratingShow = false
-    
+    var rateControll = 0
     //    MARK: -  IBOutlet
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
@@ -95,7 +95,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             if gesture.direction == UISwipeGestureRecognizer.Direction.up {
                 if(gesture.location(in: backGoundImg).x < backGoundImg.frame.size.width/2) {
                     partida.round1Sum3()
-                    SpeechPoints (points: "Tres pontos", team: usTeamName.text!)
+                    SpeechThreePoint(points: "Tres pontos", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sum3(round: partida.roundT2)
                     SpeechPoints (points: "Tres pontos", team: theyTeamName.text!)
@@ -271,9 +271,12 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         
         let ResetGame = UIAlertAction(title: "Reiniciar partida", style: .destructive, handler: { (action) -> Void in
             
-            if(self.ratingShow) {
+            if(self.rateControll == 1) {
                 self.rateApp()
+            } else {
+                self.rateControll = self.rateControll + 1
             }
+            
             self.ConfirmationReset()
         })
         
@@ -342,11 +345,32 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         }
     }
     
+    func SpeechThreePoint (points: String, team: String) {
+        
+        if !synth.isSpeaking && defaults.bool(forKey: "SomAtivo") {
+        
+            var myUtterance = AVSpeechUtterance(string: "\(points) PARA \(team)")
+            
+            let rand = Int.random(in: 1..<5)
+            if(rand == 4) {
+                myUtterance = AVSpeechUtterance(string: "\(points) PARA \(team), minha mão tá coçando pra colar o zap na testa")
+            }
+            
+            myUtterance.voice = AVSpeechSynthesisVoice(language: defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+            myUtterance.rate = defaults.float(forKey: "rateValue")
+            myUtterance.pitchMultiplier = defaults.float(forKey: "pitchValue")
+            myUtterance.volume = 1
+            myUtterance.postUtteranceDelay =  0
+            
+            synth.speak(myUtterance)
+        }
+    }
+    
     func SpeechVictory (team: String) {
         
         if defaults.bool(forKey: "SomAtivo") {
         
-            let myUtterance = AVSpeechUtterance(string: "Fim de jogo, time \(team) é o vencedor")
+            let myUtterance = AVSpeechUtterance(string: "Fim de jogo, time \(team) é o vencedor, ha ha ha os caras eram uns pa tão")
             myUtterance.voice = AVSpeechSynthesisVoice(language: defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
             myUtterance.rate = defaults.float(forKey: "rateValue")
             myUtterance.pitchMultiplier = defaults.float(forKey: "pitchValue")

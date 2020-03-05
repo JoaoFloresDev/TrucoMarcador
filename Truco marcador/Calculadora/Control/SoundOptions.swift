@@ -34,7 +34,8 @@ class Settings: UIViewController {
         UserDefaults.standard.set(rateValueSlider.value, forKey: "rateValue")
         UserDefaults.standard.set(pitchValueSlider.value, forKey: "pitchValue")
         
-        print(voices[pickerView.selectedRow(inComponent: 0)].language)
+        print(UserDefaults.standard.integer(forKey: "LanguageVoiceIndex"))
+        print(UserDefaults.standard.string(forKey: "LanguageVoice") ?? "ainda não tem")
     }
     
     // MARK: - Variables
@@ -79,12 +80,10 @@ class Settings: UIViewController {
         rateValueSlider.setValue(UserDefaults.standard.float(forKey: "rateValue"), animated: true)
         pitchValueSlider.setValue(UserDefaults.standard.float(forKey: "pitchValue"), animated: true)
         pickerView.selectRow(UserDefaults.standard.integer(forKey: "LanguageVoiceIndex"), inComponent: 0, animated: true)
-        
-        
+        switchButton.setOn(UserDefaults.standard.bool(forKey: "SomAtivo"), animated: true)
         
         rateValueLabel.text = String(format: "%.2f", UserDefaults.standard.float(forKey: "rateValue"))
         pitchValueLabel.text = String(format: "%.2f", UserDefaults.standard.float(forKey: "pitchValue"))
-        
     }
     
     @IBAction func activeSound(_ sender: Any) {

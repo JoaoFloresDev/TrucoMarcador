@@ -163,6 +163,10 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         if(!defaults.bool(forKey: "NoFirsGame")) {
             defaults.set(true, forKey: "NoFirsGame")
             defaults.set(12, forKey: "maxPoints")
+            UserDefaults.standard.set(40, forKey: "LanguageVoiceIndex")
+            UserDefaults.standard.set("pt-BR", forKey: "LanguageVoice")
+            UserDefaults.standard.set(1, forKey: "pitchValue")
+            UserDefaults.standard.set(0.5, forKey: "rateValue")
             ratingColdShow = true
         }
         return ratingColdShow
