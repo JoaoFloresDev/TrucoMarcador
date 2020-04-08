@@ -1,12 +1,11 @@
-
-
 //
-//  ExploreViewController.swift
-//  TudoNosso
+//  OptionsViewController.swift
+//  Truco Marcador
 //
-//  Created by Joao Flores on 04/11/19.
+//  Created by Joao Flores on 01/12/19.
 //  Copyright © 2019 Joao Flores. All rights reserved.
 //
+
 
 import UIKit
 import Foundation

@@ -18,7 +18,6 @@
 		C4159DE123A8206D0021F5C5 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */; };
 		C4159DE423A828FC0021F5C5 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE323A828FC0021F5C5 /* KeyboardAvoiding.swift */; };
 		C4159DE623A829070021F5C5 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */; };
-		C42D4956240D6CCE00BCF5BD /* SoundOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D4955240D6CCE00BCF5BD /* SoundOptions.swift */; };
 		C4885CF1236C5568004B1556 /* PointsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF0236C5568004B1556 /* PointsClass.swift */; };
 		C4885CF5236CBADC004B1556 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF3236CBADC004B1556 /* CardsViewController.swift */; };
 		C4F3827023CDED6300E373EA /* Truco_MarcadorMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3826F23CDED6300E373EA /* Truco_MarcadorMockTests.swift */; };
@@ -57,7 +56,6 @@
 		C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		C4159DE323A828FC0021F5C5 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
-		C42D4955240D6CCE00BCF5BD /* SoundOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundOptions.swift; sourceTree = "<group>"; };
 		C4885CF0236C5568004B1556 /* PointsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsClass.swift; sourceTree = "<group>"; };
 		C4885CF3236CBADC004B1556 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		C4F3826D23CDED6300E373EA /* Truco MarcadorMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Truco MarcadorMockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				3D6EA1072237EBE500174399 /* TrucoViewController.swift */,
-				C42D4955240D6CCE00BCF5BD /* SoundOptions.swift */,
 				C4885CF3236CBADC004B1556 /* CardsViewController.swift */,
 				C4885CF0236C5568004B1556 /* PointsClass.swift */,
 				C4159DDE23A81D0B0021F5C5 /* Functions.swift */,
@@ -317,7 +314,6 @@
 				C4159DE423A828FC0021F5C5 /* KeyboardAvoiding.swift in Sources */,
 				C4159DE123A8206D0021F5C5 /* OptionsViewController.swift in Sources */,
 				3D6EA1062237EBE500174399 /* AppDelegate.swift in Sources */,
-				C42D4956240D6CCE00BCF5BD /* SoundOptions.swift in Sources */,
 				C4159DDF23A81D0B0021F5C5 /* Functions.swift in Sources */,
 				C4159DE623A829070021F5C5 /* KeyboardDismissingView.swift in Sources */,
 				C4885CF5236CBADC004B1556 /* CardsViewController.swift in Sources */,

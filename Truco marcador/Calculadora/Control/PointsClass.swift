@@ -1,9 +1,9 @@
 //
 //  PointsClass.swift
-//  Calculadora
+//  Truco Marcador
 //
-//  Created by Joao Flores on 01/11/19.
-//  Copyright © 2019 Gustavo Lima. All rights reserved.
+//  Created by Joao Flores on 01/12/19.
+//  Copyright © 2019 Joao Flores. All rights reserved.
 //
 
 import UIKit
