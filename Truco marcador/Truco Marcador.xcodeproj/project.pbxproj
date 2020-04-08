@@ -18,7 +18,6 @@
 		C4159DE123A8206D0021F5C5 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */; };
 		C4159DE423A828FC0021F5C5 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE323A828FC0021F5C5 /* KeyboardAvoiding.swift */; };
 		C4159DE623A829070021F5C5 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */; };
-		C422674A237212D5000A6DA3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4226749237212D5000A6DA3 /* Default-568h@2x.png */; };
 		C42D4956240D6CCE00BCF5BD /* SoundOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D4955240D6CCE00BCF5BD /* SoundOptions.swift */; };
 		C4885CF1236C5568004B1556 /* PointsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF0236C5568004B1556 /* PointsClass.swift */; };
 		C4885CF5236CBADC004B1556 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF3236CBADC004B1556 /* CardsViewController.swift */; };
@@ -58,7 +57,6 @@
 		C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		C4159DE323A828FC0021F5C5 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
-		C4226749237212D5000A6DA3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C42D4955240D6CCE00BCF5BD /* SoundOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundOptions.swift; sourceTree = "<group>"; };
 		C4885CF0236C5568004B1556 /* PointsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsClass.swift; sourceTree = "<group>"; };
 		C4885CF3236CBADC004B1556 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 		3D6EA0F92237EBE500174399 = {
 			isa = PBXGroup;
 			children = (
-				C4226749237212D5000A6DA3 /* Default-568h@2x.png */,
 				3D6EA1042237EBE500174399 /* Calculadora */,
 				C407332323CCA43500C58CD1 /* Truco MarcadorTests */,
 				C4F3826E23CDED6300E373EA /* Truco MarcadorMockTests */,
@@ -290,7 +287,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D6EA1102237EBE900174399 /* LaunchScreen.storyboard in Resources */,
-				C422674A237212D5000A6DA3 /* Default-568h@2x.png in Resources */,
 				3D6EA10D2237EBE900174399 /* Assets.xcassets in Resources */,
 				3D6EA10B2237EBE500174399 /* Main.storyboard in Resources */,
 			);
@@ -502,7 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 13;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -511,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 7;
+				MARKETING_VERSION = 13;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;
@@ -524,7 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 13;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -533,7 +529,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 7;
+				MARKETING_VERSION = 13;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;

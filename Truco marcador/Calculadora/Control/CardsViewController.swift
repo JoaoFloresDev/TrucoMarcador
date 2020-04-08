@@ -1,9 +1,9 @@
 //
-//  CardsViewController.swift
-//  Calculadora
+//  SceneDelegate.swift
+//  Sueca
 //
-//  Created by Joao Flores on 31/10/19.
-//  Copyright © 2019 Gustavo Lima. All rights reserved.
+//  Created by Joao Flores on 01/12/19.
+//  Copyright © 2019 Joao Flores. All rights reserved.
 //
 
 import UIKit
@@ -16,8 +16,6 @@ class CardsViewController: UIViewController {
     @IBOutlet weak var mineiro: UIView!
     
     @IBOutlet weak var segmentRules: UISegmentedControl!
-    
-    
     @IBOutlet weak var label3: UILabel!
     
     @IBAction func close(_ sender: Any) {
@@ -54,8 +52,7 @@ class CardsViewController: UIViewController {
            mineiro.alpha = 0
     }
     
-//    teste
-
-    
-//    novo teste
+override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+}
 }

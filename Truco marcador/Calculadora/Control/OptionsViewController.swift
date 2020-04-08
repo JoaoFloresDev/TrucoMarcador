@@ -26,7 +26,17 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1491372792?mt=8&uo=4"
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
-
+            
+        } else {
+            UIApplication.shared.openURL(URL(string: urlStr)!)
+        }
+    }
+    
+    @IBAction func calculatorMKT(_ sender: Any) {
+        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1479873340"
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+            
         } else {
             UIApplication.shared.openURL(URL(string: urlStr)!)
         }
@@ -110,12 +120,11 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         
         let refreshAlert = UIAlertController(title: "Deseja salvar alterações?", message: nil, preferredStyle: UIAlertController.Style.alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (action: UIAlertAction!) in
-            self.atualizeNames()
+        refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: { (action: UIAlertAction!) in
             self.dismiss(animated: true, completion: nil)
         }))
-        
-        refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: { (action: UIAlertAction!) in
+        refreshAlert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (action: UIAlertAction!) in
+            self.atualizeNames()
             self.dismiss(animated: true, completion: nil)
         }))
         

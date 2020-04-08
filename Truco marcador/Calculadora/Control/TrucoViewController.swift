@@ -95,10 +95,10 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             if gesture.direction == UISwipeGestureRecognizer.Direction.up {
                 if(gesture.location(in: backGoundImg).x < backGoundImg.frame.size.width/2) {
                     partida.round1Sum3()
-                    SpeechThreePoint(points: "Tres pontos", team: usTeamName.text!)
+//                    SpeechThreePoint(points: "Tres pontos", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sum3(round: partida.roundT2)
-                    SpeechPoints (points: "Tres pontos", team: theyTeamName.text!)
+//                    SpeechThreePoint(points: "Tres pontos", team: usTeamName.text!)
                 }
                 
                 let currentPoint = gesture.location(in: view)
@@ -110,10 +110,10 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             else if gesture.direction == UISwipeGestureRecognizer.Direction.down {
                 if (gesture.location(in: backGoundImg).x < backGoundImg.frame.width/2) {
                     partida.roundT1 = partida.sub1(round: partida.roundT1)
-                    SpeechPoints (points: "Menos um ponto", team: usTeamName.text!)
+//                    SpeechPoints (points: "Menos um ponto", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sub1(round: partida.roundT2)
-                    SpeechPoints (points: "Menos um ponto", team: theyTeamName.text!)
+//                    SpeechPoints (points: "Menos um ponto", team: theyTeamName.text!)
                 }
                 
                 let currentPoint = gesture.location(in: view)
@@ -141,10 +141,10 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         if !(inAnimate) {
             if(gesture.location(in: nil).x < backGoundImg.frame.size.width/2) {
                 partida.roundT1 = partida.sum1(round: partida.roundT1)
-                SpeechPoints(points: "Um ponto",team: usTeamName.text!)
+//                SpeechPoints(points: "Um ponto",team: usTeamName.text!)
             } else {
                 partida.roundT2 = partida.sum1(round: partida.roundT2)
-                SpeechPoints(points: "Um ponto",team: theyTeamName.text!)
+//                SpeechPoints(points: "Um ponto",team: theyTeamName.text!)
             }
             
             if(partida.checkEndGame()) {
@@ -254,9 +254,19 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     func ConfirmationReset() {
         let refreshAlert = UIAlertController(title: "Deseja reiniciar a partida?", message: nil, preferredStyle: UIAlertController.Style.alert)
         
+        refreshAlert.modalPresentationStyle = .popover
+        
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             self.partida.resetRoundAndGame()
             self.refreshAll()
+            
+            
+            if(UserDefaults.standard.bool(forKey: "noFirstUse")) {
+                self.rateApp()
+            } else {
+                UserDefaults.standard.set (true, forKey: "noFirstUse")
+            }
+//            self.rateApp()
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -271,11 +281,11 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         
         let ResetGame = UIAlertAction(title: "Reiniciar partida", style: .destructive, handler: { (action) -> Void in
             
-            if(self.rateControll == 1) {
-                self.rateApp()
-            } else {
-                self.rateControll = self.rateControll + 1
-            }
+//            if(self.rateControll == 1) {
+//                self.rateApp()
+//            } else {
+//                self.rateControll = self.rateControll + 1
+//            }
             
             self.ConfirmationReset()
         })
@@ -288,18 +298,21 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             self.performSegue(withIdentifier: "optionsSeg", sender: nil)
         })
         
-        let SoundAction = UIAlertAction(title: "Som", style: .default, handler: { (action) -> Void in
-            self.performSegue(withIdentifier: "soundSeg", sender: nil)
-        })
+//        let SoundAction = UIAlertAction(title: "Som", style: .default, handler: { (action) -> Void in
+//            self.performSegue(withIdentifier: "soundSeg", sender: nil)
+//        })
         
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
         
         optionMenu.addAction(ResetGame)
         optionMenu.addAction(GoOrdemDasCartas)
         optionMenu.addAction(EditAction)
-        optionMenu.addAction(SoundAction)
-        
+//        optionMenu.addAction(SoundAction)
         optionMenu.addAction(cancelAction)
+        
+        optionMenu.modalPresentationStyle = .popover
+        optionMenu.popoverPresentationController?.sourceView = self.view
+        optionMenu.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.size.width / 2.0, y: self.view.bounds.size.height / 1.2, width: 1.0, height: 1.0)
         
         self.present(optionMenu, animated: true, completion: nil)
     }
@@ -367,18 +380,18 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     func SpeechVictory (team: String) {
-        
-        if defaults.bool(forKey: "SomAtivo") {
-        
-            let myUtterance = AVSpeechUtterance(string: "Fim de jogo, time \(team) é o vencedor, ha ha ha os caras eram uns pa tão")
-            myUtterance.voice = AVSpeechSynthesisVoice(language: defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-            myUtterance.rate = defaults.float(forKey: "rateValue")
-            myUtterance.pitchMultiplier = defaults.float(forKey: "pitchValue")
-            myUtterance.volume = 1
-            myUtterance.postUtteranceDelay =  0
-            
-            synth.speak(myUtterance)
-        }
+        print("ganhador \(team)")
+//        if defaults.bool(forKey: "SomAtivo") {
+//
+//            let myUtterance = AVSpeechUtterance(string: "Fim de jogo, time \(team) é o vencedor, ha ha ha os caras eram uns pa tão")
+//            myUtterance.voice = AVSpeechSynthesisVoice(language: defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+//            myUtterance.rate = defaults.float(forKey: "rateValue")
+//            myUtterance.pitchMultiplier = defaults.float(forKey: "pitchValue")
+//            myUtterance.volume = 1
+//            myUtterance.postUtteranceDelay =  0
+//
+//            synth.speak(myUtterance)
+//        }
     }
     
     
@@ -453,4 +466,9 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             completion()
         }
     }
+    
+    @IBAction func openMktLink(_ sender: Any) {
+        UIApplication.shared.openURL(NSURL(string: "https://www.whdecks.com.br/")! as URL)
+    }
+    
 }
