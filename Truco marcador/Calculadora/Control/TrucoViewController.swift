@@ -32,14 +32,26 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var inAnimate = true
     var ratingShow = false
     var rateControll = 0
-    
+    var i = 0
+    var vet = [1002, 1007, 1012, 1015, 1300,1308, 1130, 1163]
+//    1002, 1007, 1012, 1015,    1300, 1308
     //    MARK: -  IBOutlet
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
-    @IBOutlet weak var speachLabel: UILabel!
     @IBAction func speachAction(_ sender: Any) {
         
+    AudioServicesPlaySystemSound(SystemSoundID(1002))
+        delayWithSeconds(0.5) {
+        let myUtterance = AVSpeechUtterance(string: "Truuuco Marreco")
+            myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+            myUtterance.rate = self.defaults.float(forKey: "rateValue")
+            myUtterance.pitchMultiplier = self.defaults.float(forKey: "pitchValue")
+        myUtterance.volume = 1
+        myUtterance.postUtteranceDelay =  0
+
+            self.synth.speak(myUtterance)
+        }
     }
     
     
