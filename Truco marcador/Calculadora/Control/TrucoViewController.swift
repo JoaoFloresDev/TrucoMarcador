@@ -42,15 +42,66 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     @IBAction func speachAction(_ sender: Any) {
         
     AudioServicesPlaySystemSound(SystemSoundID(1002))
+        
+        var myUtterance = AVSpeechUtterance(string: "Truuuco Marreco")
+        
         delayWithSeconds(0.5) {
-        let myUtterance = AVSpeechUtterance(string: "Truuuco Marreco")
-            myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-            myUtterance.rate = self.defaults.float(forKey: "rateValue")
-            myUtterance.pitchMultiplier = self.defaults.float(forKey: "pitchValue")
-        myUtterance.volume = 1
-        myUtterance.postUtteranceDelay =  0
+            let rand =  Int.random(in: 0...3)
+            switch rand {
+            case 0:
+                myUtterance = AVSpeechUtterance(string: "Trururururururuco, Muito fácil com freguês")
+                
+                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                    myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
 
-            self.synth.speak(myUtterance)
+                    self.synth.speak(myUtterance)
+                
+                
+                myUtterance = AVSpeechUtterance(string: "quem vai pedir seis??")
+                
+                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                myUtterance.rate = 0.6
+                    myUtterance.pitchMultiplier = 2
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+
+                self.synth.speak(myUtterance)
+                
+            case 1:
+                myUtterance = AVSpeechUtterance(string: "Trururururururuco Marreco!!!")
+                
+                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                    myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+
+                    self.synth.speak(myUtterance)
+                
+            case 2:
+                myUtterance = AVSpeechUtterance(string: "truquei e ta trucado.. quem eh o marreco que ficou melado??")
+                
+                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                    myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+
+                    self.synth.speak(myUtterance)
+            default:
+                myUtterance = AVSpeechUtterance(string: "Minhoca não tem osso, banana não tem caroço, TRUCO seu moço")
+                
+                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                    myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+
+                    self.synth.speak(myUtterance)
+            }
         }
     }
     
