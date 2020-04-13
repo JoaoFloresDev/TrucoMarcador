@@ -32,9 +32,16 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var inAnimate = true
     var ratingShow = false
     var rateControll = 0
+    
     //    MARK: -  IBOutlet
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
+    
+    @IBOutlet weak var speachLabel: UILabel!
+    @IBAction func speachAction(_ sender: Any) {
+        
+    }
+    
     
     @IBOutlet weak var usTeamName: UILabel!
     @IBOutlet weak var theyTeamName: UILabel!
@@ -67,7 +74,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     @IBAction func home(_ sender: Any) {
         showMenu()
     }
-
+    
     //   MARK: - LIFE CYCLE
     override func viewDidLoad() {
         self.ratingShow = OptionsViewController().checkFirsGame()
@@ -86,6 +93,8 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
+        
+        print("teste")
     }
     
     //   MARK: - GESTURES
