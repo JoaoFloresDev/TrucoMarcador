@@ -49,7 +49,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             let rand =  Int.random(in: 0...3)
             switch rand {
             case 0:
-                myUtterance = AVSpeechUtterance(string: "Trururururururuco, Muito fácil com freguês")
+                myUtterance = AVSpeechUtterance(string: "Trururururururuco, Muito fácil com freguêis, quem vai pedir seis??")
                 
                     myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
                     myUtterance.rate = self.defaults.float(forKey: "rateValue")
@@ -58,17 +58,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
                 myUtterance.postUtteranceDelay =  0
 
                     self.synth.speak(myUtterance)
-                
-                
-                myUtterance = AVSpeechUtterance(string: "quem vai pedir seis??")
-                
-                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-                myUtterance.rate = 0.6
-                    myUtterance.pitchMultiplier = 2
-                myUtterance.volume = 10
-                myUtterance.postUtteranceDelay =  0
-
-                self.synth.speak(myUtterance)
                 
             case 1:
                 myUtterance = AVSpeechUtterance(string: "Trururururururuco Marreco!!!")
