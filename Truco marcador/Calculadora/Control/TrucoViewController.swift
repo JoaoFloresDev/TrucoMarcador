@@ -38,6 +38,8 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     //    MARK: -  IBOutlet
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
+    @IBOutlet weak var mktView: UIView!
+    
     
     @IBAction func speachAction(_ sender: Any) {
         
@@ -121,6 +123,8 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         
         buttonTutorial.alpha = 0
         inAnimate = false
+        
+        mktView.alpha = 1
     }
     
     @IBAction func home(_ sender: Any) {
@@ -146,7 +150,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
         
-        print("teste")
     }
     
     //   MARK: - GESTURES
@@ -442,17 +445,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     func SpeechVictory (team: String) {
         print("ganhador \(team)")
-//        if defaults.bool(forKey: "SomAtivo") {
-//
-//            let myUtterance = AVSpeechUtterance(string: "Fim de jogo, time \(team) é o vencedor, ha ha ha os caras eram uns pa tão")
-//            myUtterance.voice = AVSpeechSynthesisVoice(language: defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-//            myUtterance.rate = defaults.float(forKey: "rateValue")
-//            myUtterance.pitchMultiplier = defaults.float(forKey: "pitchValue")
-//            myUtterance.volume = 1
-//            myUtterance.postUtteranceDelay =  0
-//
-//            synth.speak(myUtterance)
-//        }
     }
     
     

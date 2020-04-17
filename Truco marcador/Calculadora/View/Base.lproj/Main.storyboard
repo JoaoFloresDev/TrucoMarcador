@@ -80,13 +80,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="division" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-9M-ced">
-                                <rect key="frame" x="103.5" y="391" width="207" height="265"/>
+                                <rect key="frame" x="103.5" y="399" width="207" height="257"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="division 2" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-OZ-6ph">
-                                <rect key="frame" x="83" y="370" width="248" height="1"/>
+                                <rect key="frame" x="83" y="370" width="248" height="9"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="division 2" translatesAutoresizingMaskIntoConstraints="NO" id="ZxD-fG-m51">
-                                <rect key="frame" x="83" y="234.5" width="248" height="1"/>
+                                <rect key="frame" x="83" y="234.5" width="248" height="9"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tg0-VQ-vQq">
                                 <rect key="frame" x="177" y="566" width="60" height="60"/>
@@ -124,7 +124,7 @@
                                     <constraint firstItem="LIa-f7-jEZ" firstAttribute="height" secondItem="Tg0-VQ-vQq" secondAttribute="height" id="zn0-s4-KVa"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfU-TA-sva">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfU-TA-sva">
                                 <rect key="frame" x="-207" y="-443" width="828" height="1792"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
@@ -172,7 +172,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NAn-Fe-ana">
                                 <rect key="frame" x="0.0" y="5" width="414" height="896"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-ac-knH">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-ac-knH">
                                 <rect key="frame" x="0.0" y="776" width="414" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JxE-ip-cSb">
@@ -309,6 +309,7 @@
                         <outlet property="gamesTeam1" destination="DRc-5z-q5c" id="Uff-q5-Hvr"/>
                         <outlet property="gamesTeam2" destination="iHa-RP-6hP" id="2W3-La-CbI"/>
                         <outlet property="mainImageView" destination="VKi-5E-yae" id="Lfy-aA-o3b"/>
+                        <outlet property="mktView" destination="9R2-ac-knH" id="3zC-at-j0K"/>
                         <outlet property="roundTeam1" destination="7Fl-wO-cDr" id="bZ1-xJ-thi"/>
                         <outlet property="roundTeam2" destination="Np1-TX-iaU" id="AmZ-Bh-99d"/>
                         <outlet property="tempImageView" destination="NAn-Fe-ana" id="egv-vW-O0L"/>
