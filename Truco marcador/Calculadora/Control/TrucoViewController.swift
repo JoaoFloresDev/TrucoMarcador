@@ -9,6 +9,7 @@
 import UIKit
 import StoreKit
 import AVFoundation
+import QuartzCore
 
 class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
@@ -32,14 +33,14 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var inAnimate = true
     var ratingShow = false
     var rateControll = 0
-    var i = 0
-    var vet = [1002, 1007, 1012, 1015, 1300,1308, 1130, 1163]
-//    1002, 1007, 1012, 1015,    1300, 1308
+    
     //    MARK: -  IBOutlet
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     @IBOutlet weak var mktView: UIView!
     
+    @IBOutlet weak var whiteButtonsSpeach: UIImageView!
+    @IBOutlet weak var blackButtonSpeach: UIImageView!
     
     @IBAction func speachAction(_ sender: Any) {
         
@@ -96,7 +97,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         }
     }
     
-    
     @IBOutlet weak var usTeamName: UILabel!
     @IBOutlet weak var theyTeamName: UILabel!
     
@@ -150,8 +150,21 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
         
+        cropButtonImg()
     }
     
+    func cropButtonImg() {
+//        whiteButtonsSpeach
+//        blackButtonSpeach
+        
+        var imageLayer: CALayer? = whiteButtonsSpeach.layer
+        imageLayer?.cornerRadius = 29
+        imageLayer?.masksToBounds = true
+        
+        imageLayer = blackButtonSpeach.layer
+        imageLayer?.cornerRadius = 27
+        imageLayer?.masksToBounds = true
+    }
     //   MARK: - GESTURES
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if !(inAnimate) {
