@@ -42,6 +42,24 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     @IBOutlet weak var whiteButtonsSpeach: UIImageView!
     @IBOutlet weak var blackButtonSpeach: UIImageView!
     
+    @IBOutlet weak var usTeamName: UILabel!
+    @IBOutlet weak var theyTeamName: UILabel!
+    
+    @IBOutlet weak var backGroundBlack: UIImageView!
+    @IBOutlet var LabelsTutorial: [UILabel]!
+    @IBOutlet var ImagesTutorial: [UIImageView]!
+    @IBOutlet weak var buttonTutorial: UIButton!
+    
+    @IBOutlet weak var backGoundImg: UIImageView!
+    
+    //    labels rounds and games
+    @IBOutlet weak var roundTeam1: UILabel!
+    @IBOutlet weak var roundTeam2: UILabel!
+    @IBOutlet weak var gamesTeam1: UILabel!
+    @IBOutlet weak var gamesTeam2: UILabel!
+    
+    //    MARK: - IBAction
+    
     @IBAction func speachAction(_ sender: Any) {
         
     AudioServicesPlaySystemSound(SystemSoundID(1002))
@@ -97,24 +115,17 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         }
     }
     
-    @IBOutlet weak var usTeamName: UILabel!
-    @IBOutlet weak var theyTeamName: UILabel!
-    
-    @IBOutlet weak var backGroundBlack: UIImageView!
-    @IBOutlet var LabelsTutorial: [UILabel]!
-    @IBOutlet var ImagesTutorial: [UIImageView]!
-    @IBOutlet weak var buttonTutorial: UIButton!
-    
-    @IBOutlet weak var backGoundImg: UIImageView!
-    
-    //    labels rounds and games
-    @IBOutlet weak var roundTeam1: UILabel!
-    @IBOutlet weak var roundTeam2: UILabel!
-    @IBOutlet weak var gamesTeam1: UILabel!
-    @IBOutlet weak var gamesTeam2: UILabel!
-    
-    //    MARK: - IBAction
     @IBAction func finishTutorial(_ sender: Any) {
+        finishTutorialFunc()
+    }
+    
+    @IBAction func home(_ sender: Any) {
+        showMenu()
+    }
+    
+    //   MARK: - LIFE CYCLE
+    
+    func finishTutorialFunc() {
         backGroundBlack.alpha = 0
         for x in 0 ... 2 {
             LabelsTutorial[x].alpha = 0
@@ -127,11 +138,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         mktView.alpha = 1
     }
     
-    @IBAction func home(_ sender: Any) {
-        showMenu()
-    }
-    
-    //   MARK: - LIFE CYCLE
     override func viewDidLoad() {
         self.ratingShow = OptionsViewController().checkFirsGame()
         atualizeNamesTeams()
@@ -151,12 +157,13 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         self.view.addGestureRecognizer(swipeDown)
         
         cropButtonImg()
+        
+        if(UserDefaults.standard.bool(forKey: "noFirstUse")) {
+            self.finishTutorialFunc()
+        }
     }
     
     func cropButtonImg() {
-//        whiteButtonsSpeach
-//        blackButtonSpeach
-        
         var imageLayer: CALayer? = whiteButtonsSpeach.layer
         imageLayer?.cornerRadius = 29
         imageLayer?.masksToBounds = true
@@ -165,6 +172,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         imageLayer?.cornerRadius = 27
         imageLayer?.masksToBounds = true
     }
+    
     //   MARK: - GESTURES
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if !(inAnimate) {
@@ -187,10 +195,8 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             else if gesture.direction == UISwipeGestureRecognizer.Direction.down {
                 if (gesture.location(in: backGoundImg).x < backGoundImg.frame.width/2) {
                     partida.roundT1 = partida.sub1(round: partida.roundT1)
-//                    SpeechPoints (points: "Menos um ponto", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sub1(round: partida.roundT2)
-//                    SpeechPoints (points: "Menos um ponto", team: theyTeamName.text!)
                 }
                 
                 let currentPoint = gesture.location(in: view)
@@ -200,14 +206,8 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             }
             
             if(partida.checkEndGame()) {
-                if(partida.finshScoreboard() == 1) {
-                    SpeechVictory(team: usTeamName.text!)
-                } else {
-                    SpeechVictory(team: theyTeamName.text!)
-                }
                 inAnimate = true
                 animate()
-                
             } else {
                 refreshScores()
             }
@@ -218,10 +218,8 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         if !(inAnimate) {
             if(gesture.location(in: nil).x < backGoundImg.frame.size.width/2) {
                 partida.roundT1 = partida.sum1(round: partida.roundT1)
-//                SpeechPoints(points: "Um ponto",team: usTeamName.text!)
             } else {
                 partida.roundT2 = partida.sum1(round: partida.roundT2)
-//                SpeechPoints(points: "Um ponto",team: theyTeamName.text!)
             }
             
             if(partida.checkEndGame()) {
@@ -240,7 +238,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     }
     
     //    MARK: - ANIMATIONS
-    
     func animate() {
         winner = roundTeam2
         increasing = true
@@ -310,7 +307,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         }
     }
     
-    
     //    MARK: - POINTS MANAGER
     func refreshScores() {
         roundTeam1.text = String(partida.roundT1)
@@ -337,13 +333,11 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             self.partida.resetRoundAndGame()
             self.refreshAll()
             
-            
             if(UserDefaults.standard.bool(forKey: "noFirstUse")) {
                 self.rateApp()
             } else {
                 UserDefaults.standard.set (true, forKey: "noFirstUse")
             }
-//            self.rateApp()
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -357,13 +351,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let ResetGame = UIAlertAction(title: "Reiniciar partida", style: .destructive, handler: { (action) -> Void in
-            
-//            if(self.rateControll == 1) {
-//                self.rateApp()
-//            } else {
-//                self.rateControll = self.rateControll + 1
-//            }
-            
             self.ConfirmationReset()
         })
         
@@ -375,16 +362,17 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
             self.performSegue(withIdentifier: "optionsSeg", sender: nil)
         })
         
-//        let SoundAction = UIAlertAction(title: "Som", style: .default, handler: { (action) -> Void in
-//            self.performSegue(withIdentifier: "soundSeg", sender: nil)
-//        })
+        let TutorialShow = UIAlertAction(title: "Tutorial", style: .default, handler: { (action) -> Void in
+            self.showTutorial()
+        })
+        
         
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
         
         optionMenu.addAction(ResetGame)
         optionMenu.addAction(GoOrdemDasCartas)
         optionMenu.addAction(EditAction)
-//        optionMenu.addAction(SoundAction)
+        optionMenu.addAction(TutorialShow)
         optionMenu.addAction(cancelAction)
         
         optionMenu.modalPresentationStyle = .popover
@@ -394,6 +382,18 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         self.present(optionMenu, animated: true, completion: nil)
     }
     
+    func showTutorial() {
+        backGroundBlack.alpha = 0.8
+        for x in 0 ... 2 {
+            LabelsTutorial[x].alpha = 1
+            ImagesTutorial[x].alpha = 1
+        }
+        
+        buttonTutorial.alpha = 1
+        inAnimate = true
+        
+        mktView.alpha = 0
+    }
     // MARK: - FUNCTIONS
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -417,49 +417,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
         }
         ratingShow = false
     }
-
-    // MARK: - Speech
-    
-    func SpeechPoints (points: String, team: String) {
-        
-        if !synth.isSpeaking && defaults.bool(forKey: "SomAtivo") {
-        
-            let myUtterance = AVSpeechUtterance(string: "\(points) PARA \(team)")
-            myUtterance.voice = AVSpeechSynthesisVoice(language: defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-            myUtterance.rate = defaults.float(forKey: "rateValue")
-            myUtterance.pitchMultiplier = defaults.float(forKey: "pitchValue")
-            myUtterance.volume = 1
-            myUtterance.postUtteranceDelay =  0
-            
-            synth.speak(myUtterance)
-        }
-    }
-    
-    func SpeechThreePoint (points: String, team: String) {
-        
-        if !synth.isSpeaking && defaults.bool(forKey: "SomAtivo") {
-        
-            var myUtterance = AVSpeechUtterance(string: "\(points) PARA \(team)")
-            
-            let rand = Int.random(in: 1..<5)
-            if(rand == 4) {
-                myUtterance = AVSpeechUtterance(string: "\(points) PARA \(team), minha mão tá coçando pra colar o zap na testa")
-            }
-            
-            myUtterance.voice = AVSpeechSynthesisVoice(language: defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-            myUtterance.rate = defaults.float(forKey: "rateValue")
-            myUtterance.pitchMultiplier = defaults.float(forKey: "pitchValue")
-            myUtterance.volume = 1
-            myUtterance.postUtteranceDelay =  0
-            
-            synth.speak(myUtterance)
-        }
-    }
-    
-    func SpeechVictory (team: String) {
-        print("ganhador \(team)")
-    }
-    
     
     // MARK: - Draw
     
@@ -536,5 +493,4 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate {
     @IBAction func openMktLink(_ sender: Any) {
         UIApplication.shared.openURL(NSURL(string: "https://www.whdecks.com.br/")! as URL)
     }
-    
 }
