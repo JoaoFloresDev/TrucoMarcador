@@ -13,6 +13,8 @@
 		3D6EA10D2237EBE900174399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D6EA10C2237EBE900174399 /* Assets.xcassets */; };
 		3D6EA1102237EBE900174399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D6EA10E2237EBE900174399 /* LaunchScreen.storyboard */; };
 		3D6EA11A2238362800174399 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EA1192238362800174399 /* Calculator.swift */; };
+		4011BB026ED796B6A3068D25 /* Pods_Truco_MarcadorMockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1447DC80C1A668F0654C655 /* Pods_Truco_MarcadorMockTests.framework */; };
+		BEBF9D1A1B5D8104DE0F83DE /* Pods_Truco_Marcador.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45926A3B6591F83D0A3CEE6 /* Pods_Truco_Marcador.framework */; };
 		C407332523CCA43500C58CD1 /* Truco_MarcadorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407332423CCA43500C58CD1 /* Truco_MarcadorTests.swift */; };
 		C4159DDF23A81D0B0021F5C5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DDE23A81D0B0021F5C5 /* Functions.swift */; };
 		C4159DE123A8206D0021F5C5 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */; };
@@ -21,6 +23,7 @@
 		C4885CF1236C5568004B1556 /* PointsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF0236C5568004B1556 /* PointsClass.swift */; };
 		C4885CF5236CBADC004B1556 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF3236CBADC004B1556 /* CardsViewController.swift */; };
 		C4F3827023CDED6300E373EA /* Truco_MarcadorMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3826F23CDED6300E373EA /* Truco_MarcadorMockTests.swift */; };
+		E601187AC62B9C8C5FA0489D /* Pods_Truco_MarcadorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C630DAE393176A5034D2A0 /* Pods_Truco_MarcadorTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10C630DAE393176A5034D2A0 /* Pods_Truco_MarcadorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Truco_MarcadorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE4CF5986147C8CED4CD194 /* Pods-Truco Marcador.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Truco Marcador.release.xcconfig"; path = "Target Support Files/Pods-Truco Marcador/Pods-Truco Marcador.release.xcconfig"; sourceTree = "<group>"; };
 		3D6EA1022237EBE500174399 /* Truco Marcador.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Truco Marcador.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D6EA1052237EBE500174399 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D6EA1072237EBE500174399 /* TrucoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrucoViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,9 @@
 		3D6EA10F2237EBE900174399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D6EA1112237EBE900174399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D6EA1192238362800174399 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		5152D8BC9A8AE097E26E7815 /* Pods-Truco MarcadorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Truco MarcadorTests.release.xcconfig"; path = "Target Support Files/Pods-Truco MarcadorTests/Pods-Truco MarcadorTests.release.xcconfig"; sourceTree = "<group>"; };
+		B38CE0A830042517EF023F03 /* Pods-Truco Marcador.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Truco Marcador.debug.xcconfig"; path = "Target Support Files/Pods-Truco Marcador/Pods-Truco Marcador.debug.xcconfig"; sourceTree = "<group>"; };
+		BECF3B98423495E9D738735A /* Pods-Truco MarcadorMockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Truco MarcadorMockTests.release.xcconfig"; path = "Target Support Files/Pods-Truco MarcadorMockTests/Pods-Truco MarcadorMockTests.release.xcconfig"; sourceTree = "<group>"; };
 		C407332223CCA43500C58CD1 /* Truco MarcadorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Truco MarcadorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C407332423CCA43500C58CD1 /* Truco_MarcadorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truco_MarcadorTests.swift; sourceTree = "<group>"; };
 		C407332623CCA43500C58CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +69,10 @@
 		C4F3826D23CDED6300E373EA /* Truco MarcadorMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Truco MarcadorMockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F3826F23CDED6300E373EA /* Truco_MarcadorMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truco_MarcadorMockTests.swift; sourceTree = "<group>"; };
 		C4F3827123CDED6300E373EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1447DC80C1A668F0654C655 /* Pods_Truco_MarcadorMockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Truco_MarcadorMockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D45926A3B6591F83D0A3CEE6 /* Pods_Truco_Marcador.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Truco_Marcador.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAC38679ECCF805A93310D71 /* Pods-Truco MarcadorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Truco MarcadorTests.debug.xcconfig"; path = "Target Support Files/Pods-Truco MarcadorTests/Pods-Truco MarcadorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ECD06404F23DB586AAEBF0A6 /* Pods-Truco MarcadorMockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Truco MarcadorMockTests.debug.xcconfig"; path = "Target Support Files/Pods-Truco MarcadorMockTests/Pods-Truco MarcadorMockTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEBF9D1A1B5D8104DE0F83DE /* Pods_Truco_Marcador.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E601187AC62B9C8C5FA0489D /* Pods_Truco_MarcadorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4011BB026ED796B6A3068D25 /* Pods_Truco_MarcadorMockTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +110,8 @@
 				C407332323CCA43500C58CD1 /* Truco MarcadorTests */,
 				C4F3826E23CDED6300E373EA /* Truco MarcadorMockTests */,
 				3D6EA1032237EBE500174399 /* Products */,
+				AFB0869FA586558194267499 /* Pods */,
+				CD8B9CCC4446894C5B15F5EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +168,20 @@
 			path = Control;
 			sourceTree = "<group>";
 		};
+		AFB0869FA586558194267499 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B38CE0A830042517EF023F03 /* Pods-Truco Marcador.debug.xcconfig */,
+				2BE4CF5986147C8CED4CD194 /* Pods-Truco Marcador.release.xcconfig */,
+				ECD06404F23DB586AAEBF0A6 /* Pods-Truco MarcadorMockTests.debug.xcconfig */,
+				BECF3B98423495E9D738735A /* Pods-Truco MarcadorMockTests.release.xcconfig */,
+				EAC38679ECCF805A93310D71 /* Pods-Truco MarcadorTests.debug.xcconfig */,
+				5152D8BC9A8AE097E26E7815 /* Pods-Truco MarcadorTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C407332323CCA43500C58CD1 /* Truco MarcadorTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +209,16 @@
 			path = "Truco MarcadorMockTests";
 			sourceTree = "<group>";
 		};
+		CD8B9CCC4446894C5B15F5EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D45926A3B6591F83D0A3CEE6 /* Pods_Truco_Marcador.framework */,
+				D1447DC80C1A668F0654C655 /* Pods_Truco_MarcadorMockTests.framework */,
+				10C630DAE393176A5034D2A0 /* Pods_Truco_MarcadorTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D6EA1142237EBE900174399 /* Build configuration list for PBXNativeTarget "Truco Marcador" */;
 			buildPhases = (
+				CB8BCC9DAD68702179A1718C /* [CP] Check Pods Manifest.lock */,
 				3D6EA0FE2237EBE500174399 /* Sources */,
 				3D6EA0FF2237EBE500174399 /* Frameworks */,
 				3D6EA1002237EBE500174399 /* Resources */,
+				380945434A36965F202A45E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +245,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C407332B23CCA43500C58CD1 /* Build configuration list for PBXNativeTarget "Truco MarcadorTests" */;
 			buildPhases = (
+				0A0265C1209F79C726CCA67B /* [CP] Check Pods Manifest.lock */,
 				C407331E23CCA43500C58CD1 /* Sources */,
 				C407331F23CCA43500C58CD1 /* Frameworks */,
 				C407332023CCA43500C58CD1 /* Resources */,
@@ -220,6 +264,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4F3827423CDED6300E373EA /* Build configuration list for PBXNativeTarget "Truco MarcadorMockTests" */;
 			buildPhases = (
+				15349120FAAE682473090CE8 /* [CP] Check Pods Manifest.lock */,
 				C4F3826923CDED6300E373EA /* Sources */,
 				C4F3826A23CDED6300E373EA /* Frameworks */,
 				C4F3826B23CDED6300E373EA /* Resources */,
@@ -304,6 +349,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A0265C1209F79C726CCA67B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Truco MarcadorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15349120FAAE682473090CE8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Truco MarcadorMockTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		380945434A36965F202A45E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Truco Marcador/Pods-Truco Marcador-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Truco Marcador/Pods-Truco Marcador-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Truco Marcador/Pods-Truco Marcador-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB8BCC9DAD68702179A1718C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Truco Marcador-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D6EA0FE2237EBE500174399 /* Sources */ = {
@@ -491,6 +622,7 @@
 		};
 		3D6EA1152237EBE900174399 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B38CE0A830042517EF023F03 /* Pods-Truco Marcador.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -513,6 +645,7 @@
 		};
 		3D6EA1162237EBE900174399 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BE4CF5986147C8CED4CD194 /* Pods-Truco Marcador.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +668,7 @@
 		};
 		C407332923CCA43500C58CD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAC38679ECCF805A93310D71 /* Pods-Truco MarcadorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -556,6 +690,7 @@
 		};
 		C407332A23CCA43500C58CD1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5152D8BC9A8AE097E26E7815 /* Pods-Truco MarcadorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -577,6 +712,7 @@
 		};
 		C4F3827523CDED6300E373EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECD06404F23DB586AAEBF0A6 /* Pods-Truco MarcadorMockTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -598,6 +734,7 @@
 		};
 		C4F3827623CDED6300E373EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BECF3B98423495E9D738735A /* Pods-Truco MarcadorMockTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
