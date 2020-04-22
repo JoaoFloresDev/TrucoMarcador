@@ -40,7 +40,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     //    MARK: -  IBOutlet
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
-    @IBOutlet weak var mktView: UIView!
     
     @IBOutlet weak var whiteButtonsSpeach: UIImageView!
     @IBOutlet weak var blackButtonSpeach: UIImageView!
@@ -137,8 +136,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         
         buttonTutorial.alpha = 0
         inAnimate = false
-        
-        mktView.alpha = 1
     }
     
     override func viewDidLoad() {
@@ -167,10 +164,11 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
             self.finishTutorialFunc()
         }
         
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
         addBannerViewToView(bannerView)
-//        bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        
+        bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
+//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
         
         bannerView.load(GADRequest())
@@ -426,8 +424,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         
         buttonTutorial.alpha = 1
         inAnimate = true
-        
-        mktView.alpha = 0
     }
     // MARK: - FUNCTIONS
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -523,10 +519,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             completion()
         }
-    }
-    
-    @IBAction func openMktLink(_ sender: Any) {
-        UIApplication.shared.openURL(NSURL(string: "https://www.whdecks.com.br/")! as URL)
     }
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {

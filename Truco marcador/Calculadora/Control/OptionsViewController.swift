@@ -16,10 +16,17 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     var defaults = UserDefaults.standard
     
     //MARK: - OUTLETS
+    //        UIApplication.shared.openURL(NSURL(string: "https://www.whdecks.com.br/")! as URL)
+    
+    @IBOutlet weak var whView: UIView!
     
     @IBOutlet weak var usTeamTextBox: UITextField!
     @IBOutlet weak var theyTeamTextBox: UITextField!
     @IBOutlet weak var maxPointsTextBox: UITextField!
+    
+    @IBAction func whMKT(_ sender: Any) {
+        UIApplication.shared.openURL(NSURL(string: "https://www.whdecks.com.br/")! as URL)
+    }
     
     @IBAction func suecaMKT(_ sender: Any) {
         let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1491372792?mt=8&uo=4"
@@ -60,6 +67,8 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         self.usTeamTextBox.delegate = self
         self.theyTeamTextBox.delegate = self
         self.maxPointsTextBox.delegate = self
+        
+        cropBounds(viewlayer: whView.layer, cornerRadius: 20)
     }
     
     //MARK: - METHODS
@@ -178,5 +187,12 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
             ratingColdShow = true
         }
         return ratingColdShow
+    }
+    
+    func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
+        
+        let imageLayer = viewlayer
+        imageLayer.cornerRadius = CGFloat(cornerRadius)
+        imageLayer.masksToBounds = true
     }
 }
