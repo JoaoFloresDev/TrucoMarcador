@@ -15,6 +15,7 @@ import GoogleMobileAds
 class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBannerViewDelegate {
     
     var bannerView: GADBannerView!
+    @IBOutlet weak var bannerVIewPlaceHolder: UIView!
     
     let synth = AVSpeechSynthesizer()
     
@@ -138,14 +139,23 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         inAnimate = false
     }
     
+    func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
+        
+        let imageLayer = viewlayer
+        imageLayer.cornerRadius = CGFloat(cornerRadius)
+        imageLayer.masksToBounds = true
+    }
+    
     override func viewDidLoad() {
+        
+        cropBounds(viewlayer: bannerVIewPlaceHolder.layer, cornerRadius: 20)
         self.ratingShow = OptionsViewController().checkFirsGame()
         atualizeNamesTeams()
         partida = PointsClass()
         refreshScores()
         refreshRounds()
         
-//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(TrucoViewController.tap(_:)))
         self.view.addGestureRecognizer(tap)
