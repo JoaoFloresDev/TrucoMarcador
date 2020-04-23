@@ -18,15 +18,9 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     //MARK: - OUTLETS
     //        UIApplication.shared.openURL(NSURL(string: "https://www.whdecks.com.br/")! as URL)
     
-    @IBOutlet weak var whView: UIView!
-    
     @IBOutlet weak var usTeamTextBox: UITextField!
     @IBOutlet weak var theyTeamTextBox: UITextField!
     @IBOutlet weak var maxPointsTextBox: UITextField!
-    
-    @IBAction func whMKT(_ sender: Any) {
-        UIApplication.shared.openURL(NSURL(string: "https://www.whdecks.com.br/")! as URL)
-    }
     
     @IBAction func suecaMKT(_ sender: Any) {
         let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1491372792?mt=8&uo=4"
@@ -40,6 +34,26 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBAction func calculatorMKT(_ sender: Any) {
         let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1479873340"
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+            
+        } else {
+            UIApplication.shared.openURL(URL(string: urlStr)!)
+        }
+    }
+    
+    @IBAction func foguetinhoMKT(_ sender: Any) {
+        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1479692515"
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+            
+        } else {
+            UIApplication.shared.openURL(URL(string: urlStr)!)
+        }
+    }
+    
+    @IBAction func dispensadoMKT(_ sender: Any) {
+        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1508371263"
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
             
@@ -67,8 +81,6 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         self.usTeamTextBox.delegate = self
         self.theyTeamTextBox.delegate = self
         self.maxPointsTextBox.delegate = self
-        
-        cropBounds(viewlayer: whView.layer, cornerRadius: 20)
     }
     
     //MARK: - METHODS
@@ -121,22 +133,12 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     @IBAction func dismissView(_ sender: Any) {
-        self.closeView()
+        self.atualizeNames()
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func closeView() {
-        
-        let refreshAlert = UIAlertController(title: "Deseja salvar alterações?", message: nil, preferredStyle: UIAlertController.Style.alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: { (action: UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        refreshAlert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (action: UIAlertAction!) in
-            self.atualizeNames()
-            self.dismiss(animated: true, completion: nil)
-        }))
-        
-        present(refreshAlert, animated: true, completion: nil)
+    @IBAction func cancelView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
