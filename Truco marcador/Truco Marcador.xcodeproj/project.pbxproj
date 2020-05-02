@@ -22,6 +22,7 @@
 		C4159DE623A829070021F5C5 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */; };
 		C4885CF1236C5568004B1556 /* PointsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF0236C5568004B1556 /* PointsClass.swift */; };
 		C4885CF5236CBADC004B1556 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF3236CBADC004B1556 /* CardsViewController.swift */; };
+		C4B220FA24565704003C656E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B220F924565704003C656E /* StoreKit.framework */; };
 		C4F3827023CDED6300E373EA /* Truco_MarcadorMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3826F23CDED6300E373EA /* Truco_MarcadorMockTests.swift */; };
 		E601187AC62B9C8C5FA0489D /* Pods_Truco_MarcadorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C630DAE393176A5034D2A0 /* Pods_Truco_MarcadorTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
 		C4885CF0236C5568004B1556 /* PointsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsClass.swift; sourceTree = "<group>"; };
 		C4885CF3236CBADC004B1556 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		C4B220F924565704003C656E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C4F3826D23CDED6300E373EA /* Truco MarcadorMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Truco MarcadorMockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F3826F23CDED6300E373EA /* Truco_MarcadorMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truco_MarcadorMockTests.swift; sourceTree = "<group>"; };
 		C4F3827123CDED6300E373EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBF9D1A1B5D8104DE0F83DE /* Pods_Truco_Marcador.framework in Frameworks */,
+				C4B220FA24565704003C656E /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +214,7 @@
 		CD8B9CCC4446894C5B15F5EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4B220F924565704003C656E /* StoreKit.framework */,
 				D45926A3B6591F83D0A3CEE6 /* Pods_Truco_Marcador.framework */,
 				D1447DC80C1A668F0654C655 /* Pods_Truco_MarcadorMockTests.framework */,
 				10C630DAE393176A5034D2A0 /* Pods_Truco_MarcadorTests.framework */,
@@ -625,7 +629,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -634,7 +638,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 22;
+				MARKETING_VERSION = 23;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;
@@ -648,7 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -657,7 +661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 22;
+				MARKETING_VERSION = 23;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;

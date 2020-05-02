@@ -15,7 +15,6 @@ import GoogleMobileAds
 class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBannerViewDelegate {
     
     var bannerView: GADBannerView!
-//    @IBOutlet weak var bannerVIewPlaceHolder: UIView!
     
     let synth = AVSpeechSynthesizer()
     
@@ -126,6 +125,16 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         showMenu()
     }
     
+    @IBAction func amazonMkt(_ sender: Any) {
+        let urlStr = "https://amzn.to/2KQPauf"
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+            
+        } else {
+            UIApplication.shared.openURL(URL(string: urlStr)!)
+        }
+    }
+    
     //   MARK: - LIFE CYCLE
     
     func finishTutorialFunc() {
@@ -145,17 +154,18 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         imageLayer.cornerRadius = CGFloat(cornerRadius)
         imageLayer.masksToBounds = true
     }
+
     
     override func viewDidLoad() {
         
-        cropBounds(viewlayer: bannerVIewPlaceHolder.layer, cornerRadius: 20)
+//        cropBounds(viewlayer: bannerVIewPlaceHolder.layer, cornerRadius: 20)
         self.ratingShow = OptionsViewController().checkFirsGame()
         atualizeNamesTeams()
         partida = PointsClass()
         refreshScores()
         refreshRounds()
         
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
+//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(TrucoViewController.tap(_:)))
         self.view.addGestureRecognizer(tap)
@@ -178,7 +188,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         addBannerViewToView(bannerView)
         
         bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
         
         bannerView.load(GADRequest())
@@ -208,11 +217,11 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     
     func cropButtonImg() {
         var imageLayer: CALayer? = whiteButtonsSpeach.layer
-        imageLayer?.cornerRadius = 29
+        imageLayer?.cornerRadius = 33
         imageLayer?.masksToBounds = true
         
         imageLayer = blackButtonSpeach.layer
-        imageLayer?.cornerRadius = 27
+        imageLayer?.cornerRadius = 29
         imageLayer?.masksToBounds = true
     }
     
