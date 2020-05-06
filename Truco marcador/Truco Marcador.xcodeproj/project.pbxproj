@@ -145,7 +145,6 @@
 		3D6EA1042237EBE500174399 /* Calculadora */ = {
 			isa = PBXGroup;
 			children = (
-				C4971DE42460DE6C002CD995 /* Products */,
 				C4159DE223A828ED0021F5C5 /* Utilities */,
 				3D7C50B3225151DC00535F55 /* Model */,
 				3D7C50B4225151E200535F55 /* View */,
@@ -221,13 +220,6 @@
 				C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		C4971DE42460DE6C002CD995 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Products;
 			sourceTree = "<group>";
 		};
 		C4F3826E23CDED6300E373EA /* Truco MarcadorMockTests */ = {

@@ -67,57 +67,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     
     @IBAction func speachAction(_ sender: Any) {
         
-    AudioServicesPlaySystemSound(SystemSoundID(1002))
-        
-        var myUtterance = AVSpeechUtterance(string: "Truuuco Marreco")
-        
-        delayWithSeconds(0.5) {
-            let rand =  Int.random(in: 0...3)
-            switch rand {
-            case 0:
-                myUtterance = AVSpeechUtterance(string: "Trururururururuco, Muito fácil com freguêis, quem vai pedir seis??")
-                
-                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
-                    myUtterance.pitchMultiplier = 0.5
-                myUtterance.volume = 10
-                myUtterance.postUtteranceDelay =  0
-
-                    self.synth.speak(myUtterance)
-                
-            case 1:
-                myUtterance = AVSpeechUtterance(string: "Trururururururuco Marreco!!!")
-                
-                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
-                    myUtterance.pitchMultiplier = 0.5
-                myUtterance.volume = 10
-                myUtterance.postUtteranceDelay =  0
-
-                    self.synth.speak(myUtterance)
-                
-            case 2:
-                myUtterance = AVSpeechUtterance(string: "truquei e ta trucado.. quem eh o marreco que ficou melado??")
-                
-                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
-                    myUtterance.pitchMultiplier = 0.5
-                myUtterance.volume = 10
-                myUtterance.postUtteranceDelay =  0
-
-                    self.synth.speak(myUtterance)
-            default:
-                myUtterance = AVSpeechUtterance(string: "Minhoca não tem osso, banana não tem caroço, TRUCO seu moço")
-                
-                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
-                    myUtterance.pitchMultiplier = 0.5
-                myUtterance.volume = 10
-                myUtterance.postUtteranceDelay =  0
-
-                    self.synth.speak(myUtterance)
-            }
-        }
+        speechAction()
     }
     
     @IBAction func finishTutorial(_ sender: Any) {
@@ -199,36 +149,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
             bannerView.delegate = self
         }
     }
-    
-    var products: [SKProduct] = []
-    
-//    @objc func reload2() {
-//      products = []
-//
-//
-//      RazeFaceProducts.store.requestProducts{ [weak self] success, products in
-//        guard let self = self else { return }
-//        if success {
-//          self.products = products!
-//        let isProductPurchased = RazeFaceProducts.store.isProductPurchased(self.products[0].productIdentifier)
-//            if(isProductPurchased) {
-//                print("já adquirido")
-//                self.amazonView.removeFromSuperview()
-//                self.defaults.set(true, forKey: "Purchased")
-//            }
-//            else { GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
-//                self.bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
-//                self.addBannerViewToView(self.bannerView)
-//
-//                self.bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
-//                self.bannerView.rootViewController = self
-//
-//                self.bannerView.load(GADRequest())
-//                self.bannerView.delegate = self
-//            }
-//        }
-//      }
-//    }
     
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -573,36 +493,59 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
             completion()
         }
     }
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("adViewDidReceiveAd")
-    }
 
-    /// Tells the delegate an ad request failed.
-    func adView(_ bannerView: GADBannerView,
-        didFailToReceiveAdWithError error: GADRequestError) {
-      print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-
-    /// Tells the delegate that a full-screen view will be presented in response
-    /// to the user clicking on an ad.
-    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("adViewWillPresentScreen")
-    }
-
-    /// Tells the delegate that the full-screen view will be dismissed.
-    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("adViewWillDismissScreen")
-    }
-
-    /// Tells the delegate that the full-screen view has been dismissed.
-    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("adViewDidDismissScreen")
-    }
-
-    /// Tells the delegate that a user click will open another app (such as
-    /// the App Store), backgrounding the current app.
-    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-      print("adViewWillLeaveApplication")
+//    MARK: - Speech
+    fileprivate func speechAction() {
+        AudioServicesPlaySystemSound(SystemSoundID(1002))
+        
+        var myUtterance = AVSpeechUtterance(string: "Truuuco Marreco")
+        
+        delayWithSeconds(0.5) {
+            let rand =  Int.random(in: 0...3)
+            switch rand {
+            case 0:
+                myUtterance = AVSpeechUtterance(string: "Trururururururuco, Muito fácil com freguêis, quem vai pedir seis??")
+                
+                myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+                
+                self.synth.speak(myUtterance)
+                
+            case 1:
+                myUtterance = AVSpeechUtterance(string: "Trururururururuco Marreco!!!")
+                
+                myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+                
+                self.synth.speak(myUtterance)
+                
+            case 2:
+                myUtterance = AVSpeechUtterance(string: "truquei e ta trucado.. quem eh o marreco que ficou melado??")
+                
+                myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+                
+                self.synth.speak(myUtterance)
+            default:
+                myUtterance = AVSpeechUtterance(string: "Minhoca não tem osso, banana não tem caroço, TRUCO seu moço")
+                
+                myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+                
+                self.synth.speak(myUtterance)
+            }
+        }
     }
 }

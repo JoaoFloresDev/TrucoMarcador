@@ -33,16 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                   print("já adquirido")
                   self.defaults.set(true, forKey: "Purchased")
               }
-//              else { GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
-//                  self.bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
-//                  self.addBannerViewToView(self.bannerView)
-//
-//                  self.bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
-//                  self.bannerView.rootViewController = self
-//
-//                  self.bannerView.load(GADRequest())
-//                  self.bannerView.delegate = self
-//              }
           }
         }
         
