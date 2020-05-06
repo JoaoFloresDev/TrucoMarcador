@@ -10,40 +10,27 @@
 import UIKit
 import Foundation
 import StoreKit
+import InAppPurchase
+import SwiftyStoreKit
 
 class OptionsViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     var defaults = UserDefaults.standard
+    var buyButtonHandler: ((_ product: SKProduct) -> Void)?
+    var products: [SKProduct] = []
     
     //MARK: - OUTLETS
-    //        UIApplication.shared.openURL(NSURL(string: "https://www.whdecks.com.br/")! as URL)
+    @IBOutlet weak var MktView: UIView!
     
     @IBOutlet weak var usTeamTextBox: UITextField!
     @IBOutlet weak var theyTeamTextBox: UITextField!
     @IBOutlet weak var maxPointsTextBox: UITextField!
     
+    @IBOutlet weak var labelRemoveAds: UILabel!
+    
+    //MARK: - IBAction
     @IBAction func suecaMKT(_ sender: Any) {
         let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1491372792?mt=8&uo=4"
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
-            
-        } else {
-            UIApplication.shared.openURL(URL(string: urlStr)!)
-        }
-    }
-    
-    @IBAction func calculatorMKT(_ sender: Any) {
-        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1479873340"
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
-            
-        } else {
-            UIApplication.shared.openURL(URL(string: urlStr)!)
-        }
-    }
-    
-    @IBAction func foguetinhoMKT(_ sender: Any) {
-        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1479692515"
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
             
@@ -60,6 +47,54 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         } else {
             UIApplication.shared.openURL(URL(string: urlStr)!)
         }
+    }
+    
+    @IBAction func dismissView(_ sender: Any) {
+        self.atualizeNames()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func pursheInApp(_ sender: Any) {
+        reload()
+    }
+    
+    @objc func reload() {
+      products = []
+      
+      
+      RazeFaceProducts.store.requestProducts{ [weak self] success, products in
+        guard let self = self else { return }
+        if success {
+          self.products = products!
+        let isProductPurchased = RazeFaceProducts.store.isProductPurchased(self.products[0].productIdentifier)
+            if(!isProductPurchased) {
+                RazeFaceProducts.store.buyProduct(self.products[0])
+            } else {
+                print("já adquirido")
+                self.MktView.removeFromSuperview()
+            }
+        }
+      }
+    }
+    
+     func ConfirmationReset() {
+        let refreshAlert = UIAlertController(title: "Deseja reiniciar a partida?", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        refreshAlert.modalPresentationStyle = .popover
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            print("Cancel pressed")
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Cancel pressed")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
     }
     
     //MARK: - LIFECYCLE
@@ -81,6 +116,10 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         self.usTeamTextBox.delegate = self
         self.theyTeamTextBox.delegate = self
         self.maxPointsTextBox.delegate = self
+        
+        if(defaults.bool(forKey: "Purchased")) {
+            MktView.removeFromSuperview()
+        }
     }
     
     //MARK: - METHODS
@@ -130,15 +169,6 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func dismissView(_ sender: Any) {
-        self.atualizeNames()
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancelView(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

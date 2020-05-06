@@ -14,6 +14,7 @@ import GoogleMobileAds
 
 class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBannerViewDelegate {
     
+    var defaults = UserDefaults.standard
     var bannerView: GADBannerView!
     
     let synth = AVSpeechSynthesizer()
@@ -25,7 +26,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     var swiped = false
     
     var partida: PointsClass!
-    var defaults = UserDefaults.standard
     var timerAnimate: Timer!
     var increasing = true
     
@@ -59,7 +59,10 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     @IBOutlet weak var roundTeam2: UILabel!
     @IBOutlet weak var gamesTeam1: UILabel!
     @IBOutlet weak var gamesTeam2: UILabel!
+   
+    @IBOutlet weak var amazonView: UIView!
     
+    @IBOutlet weak var homeBUttonImg: UIButton!
     //    MARK: - IBAction
     
     @IBAction func speachAction(_ sender: Any) {
@@ -158,14 +161,11 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     
     override func viewDidLoad() {
         
-//        cropBounds(viewlayer: bannerVIewPlaceHolder.layer, cornerRadius: 20)
         self.ratingShow = OptionsViewController().checkFirsGame()
         atualizeNamesTeams()
         partida = PointsClass()
         refreshScores()
         refreshRounds()
-        
-//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(TrucoViewController.tap(_:)))
         self.view.addGestureRecognizer(tap)
@@ -184,15 +184,51 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
             self.finishTutorialFunc()
         }
         
-        bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
-        addBannerViewToView(bannerView)
-        
-        bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
-        bannerView.rootViewController = self
-        
-        bannerView.load(GADRequest())
-        bannerView.delegate = self
+        if(defaults.bool(forKey: "Purchased")) {
+            amazonView.removeFromSuperview()
+        }
+        else {
+            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
+            bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
+            addBannerViewToView(bannerView)
+            
+            bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
+            bannerView.rootViewController = self
+            
+            bannerView.load(GADRequest())
+            bannerView.delegate = self
+        }
     }
+    
+    var products: [SKProduct] = []
+    
+//    @objc func reload2() {
+//      products = []
+//
+//
+//      RazeFaceProducts.store.requestProducts{ [weak self] success, products in
+//        guard let self = self else { return }
+//        if success {
+//          self.products = products!
+//        let isProductPurchased = RazeFaceProducts.store.isProductPurchased(self.products[0].productIdentifier)
+//            if(isProductPurchased) {
+//                print("já adquirido")
+//                self.amazonView.removeFromSuperview()
+//                self.defaults.set(true, forKey: "Purchased")
+//            }
+//            else { GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
+//                self.bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
+//                self.addBannerViewToView(self.bannerView)
+//
+//                self.bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
+//                self.bannerView.rootViewController = self
+//
+//                self.bannerView.load(GADRequest())
+//                self.bannerView.delegate = self
+//            }
+//        }
+//      }
+//    }
     
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -232,10 +268,8 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
             if gesture.direction == UISwipeGestureRecognizer.Direction.up {
                 if(gesture.location(in: backGoundImg).x < backGoundImg.frame.size.width/2) {
                     partida.round1Sum3()
-//                    SpeechThreePoint(points: "Tres pontos", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sum3(round: partida.roundT2)
-//                    SpeechThreePoint(points: "Tres pontos", team: usTeamName.text!)
                 }
                 
                 let currentPoint = gesture.location(in: view)

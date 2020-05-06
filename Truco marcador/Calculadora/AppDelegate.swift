@@ -8,16 +8,44 @@
 
 import UIKit
 import GoogleMobileAds
+import InAppPurchase
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var products: [SKProduct] = []
+    var defaults = UserDefaults.standard
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+       
+        
+        
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+
+        RazeFaceProducts.store.requestProducts{ [weak self] success, products in
+          guard let self = self else { return }
+          if success {
+            self.products = products!
+          let isProductPurchased = RazeFaceProducts.store.isProductPurchased(self.products[0].productIdentifier)
+              if(isProductPurchased) {
+                  print("já adquirido")
+                  self.defaults.set(true, forKey: "Purchased")
+              }
+//              else { GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
+//                  self.bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
+//                  self.addBannerViewToView(self.bannerView)
+//
+//                  self.bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
+//                  self.bannerView.rootViewController = self
+//
+//                  self.bannerView.load(GADRequest())
+//                  self.bannerView.delegate = self
+//              }
+          }
+        }
+        
         return true
     }
 
