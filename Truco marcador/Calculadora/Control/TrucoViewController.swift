@@ -111,7 +111,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     
     override func viewDidLoad() {
         
-        self.ratingShow = OptionsViewController().checkFirsGame()
+        OptionsViewController().checkFirstGame()
         atualizeNamesTeams()
         partida = PointsClass()
         refreshScores()

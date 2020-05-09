@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,15 +11,15 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TrucoViewController" customModule="Truco_Marcador" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood edit" translatesAutoresizingMaskIntoConstraints="NO" id="cEM-Yg-E9S">
-                                <rect key="frame" x="0.0" y="-1347" width="414" height="3600"/>
+                                <rect key="frame" x="0.0" y="-1500" width="600" height="3600"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACo-vP-7HR" userLabel="Home">
-                                <rect key="frame" x="174.5" y="677" width="65" height="65"/>
+                                <rect key="frame" x="267.5" y="415" width="65" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ACo-vP-7HR" secondAttribute="height" multiplier="1:1" id="9HP-vH-kAr"/>
                                     <constraint firstAttribute="width" constant="65" id="NHD-PP-FtB"/>
@@ -32,55 +30,55 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Nós" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Is-EO-87v">
-                                <rect key="frame" x="10" y="64" width="192" height="50"/>
+                                <rect key="frame" x="10" y="20" width="285" height="50"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="35"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eles" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j17-qb-1Ju">
-                                <rect key="frame" x="212" y="64" width="192" height="50"/>
+                                <rect key="frame" x="305" y="20" width="285" height="50"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="35"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Rodada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZ0-Wf-S2V">
-                                <rect key="frame" x="162.5" y="139" width="89" height="35.5"/>
+                                <rect key="frame" x="255.5" y="95" width="89" height="35.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fl-wO-cDr">
-                                <rect key="frame" x="89" y="154.5" width="34.5" height="85"/>
+                                <rect key="frame" x="135.5" y="110.5" width="34.5" height="85"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Np1-TX-iaU">
-                                <rect key="frame" x="290.5" y="154.5" width="35" height="85"/>
+                                <rect key="frame" x="430" y="110.5" width="35" height="85"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Partida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNf-Ku-XpF">
-                                <rect key="frame" x="163.5" y="274.5" width="87.5" height="35.5"/>
+                                <rect key="frame" x="256.5" y="230.5" width="87.5" height="35.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRc-5z-q5c">
-                                <rect key="frame" x="87.5" y="290" width="37" height="85"/>
+                                <rect key="frame" x="134" y="246" width="37" height="85"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHa-RP-6hP">
-                                <rect key="frame" x="290.5" y="290" width="35" height="85"/>
+                                <rect key="frame" x="430" y="246" width="35" height="85"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEY-RM-Idm">
-                                <rect key="frame" x="47" y="762" width="320" height="100"/>
+                                <rect key="frame" x="140" y="500" width="320" height="100"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AmazonMkt" translatesAutoresizingMaskIntoConstraints="NO" id="RNj-Tw-jER">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -107,16 +105,16 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="division" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-9M-ced">
-                                <rect key="frame" x="103.5" y="408" width="207" height="249"/>
+                                <rect key="frame" x="150" y="364" width="300" height="31"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="division 2" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-OZ-6ph">
-                                <rect key="frame" x="83" y="370" width="248" height="18"/>
+                                <rect key="frame" x="120" y="326" width="360" height="18"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="division 2" translatesAutoresizingMaskIntoConstraints="NO" id="ZxD-fG-m51">
-                                <rect key="frame" x="83" y="234.5" width="248" height="18"/>
+                                <rect key="frame" x="120" y="190.5" width="360" height="18"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tg0-VQ-vQq">
-                                <rect key="frame" x="174.5" y="552" width="65" height="65"/>
+                                <rect key="frame" x="267.5" y="290" width="65" height="65"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zlK-DG-n2M">
                                         <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
@@ -154,52 +152,52 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfU-TA-sva">
-                                <rect key="frame" x="-207" y="-443" width="828" height="1792"/>
+                                <rect key="frame" x="-300" y="-300" width="1200" height="1200"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-oG-3lZ">
-                                <rect key="frame" x="0.0" y="556.5" width="414" height="185.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-oG-3lZ">
+                                <rect key="frame" x="0.0" y="556.5" width="600" height="185.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Começar"/>
                                 <connections>
                                     <action selector="finishTutorial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tC3-p4-uje"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touch" translatesAutoresizingMaskIntoConstraints="NO" id="FVk-Dj-psY">
-                                <rect key="frame" x="41.5" y="74" width="124" height="124"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="touch" translatesAutoresizingMaskIntoConstraints="NO" id="FVk-Dj-psY">
+                                <rect key="frame" x="60" y="74" width="180" height="124"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FVk-Dj-psY" secondAttribute="height" multiplier="1:1" id="Gen-7G-3Rn"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe down" translatesAutoresizingMaskIntoConstraints="NO" id="AQs-G6-v9f">
-                                <rect key="frame" x="41.5" y="248" width="124" height="124.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="swipe down" translatesAutoresizingMaskIntoConstraints="NO" id="AQs-G6-v9f">
+                                <rect key="frame" x="60" y="248" width="180" height="124.5"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe up" translatesAutoresizingMaskIntoConstraints="NO" id="RdL-Cx-ibz">
-                                <rect key="frame" x="41.5" y="422.5" width="124" height="124"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="swipe up" translatesAutoresizingMaskIntoConstraints="NO" id="RdL-Cx-ibz">
+                                <rect key="frame" x="60" y="422.5" width="180" height="124"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somar 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rn7-SO-0dQ">
-                                <rect key="frame" x="195.5" y="111" width="132" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Somar 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rn7-SO-0dQ">
+                                <rect key="frame" x="270" y="111" width="132" height="50"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtrair 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cf-fN-5yg">
-                                <rect key="frame" x="195.5" y="285.5" width="164" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Subtrair 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cf-fN-5yg">
+                                <rect key="frame" x="270" y="285.5" width="164" height="50"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somar 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V42-8c-8KC">
-                                <rect key="frame" x="195.5" y="459.5" width="132" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Somar 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V42-8c-8KC">
+                                <rect key="frame" x="270" y="459.5" width="132" height="50"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VKi-5E-yae">
-                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NAn-Fe-ana">
-                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -318,11 +316,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood edit" translatesAutoresizingMaskIntoConstraints="NO" id="WWl-Zb-klI">
-                                <rect key="frame" x="0.0" y="-517" width="414" height="2244"/>
+                                <rect key="frame" x="0.0" y="-600" width="414" height="2400"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.08235294118" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD3-UP-Zyo">
-                                <rect key="frame" x="0.0" y="155" width="414" height="1011"/>
+                                <rect key="frame" x="0.0" y="111" width="414" height="1089"/>
                                 <subviews>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAd-eU-wVP">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
@@ -933,7 +931,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="PfB-HX-vhR"/>
                             </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="2" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcJ-Us-ExP">
-                                <rect key="frame" x="20" y="104" width="374" height="32"/>
+                                <rect key="frame" x="20" y="60" width="374" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="Paulista"/>
@@ -946,7 +944,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TA-V9-1n5">
-                                <rect key="frame" x="335" y="54" width="59" height="40"/>
+                                <rect key="frame" x="335" y="10" width="59" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Qux-g1-WgN"/>
                                 </constraints>
@@ -995,20 +993,20 @@
             <objects>
                 <viewController title="Main" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="6DI-BU-dpW" customClass="OptionsViewController" customModule="Truco_Marcador" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vV2-zl-7Nw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood edit" translatesAutoresizingMaskIntoConstraints="NO" id="tel-Dn-Qcc">
-                                <rect key="frame" x="0.0" y="-443" width="414" height="1792"/>
+                                <rect key="frame" x="0.0" y="-300" width="600" height="1200"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="guD-43-iyK">
-                                <rect key="frame" x="10" y="312" width="394" height="34"/>
+                                <rect key="frame" x="10" y="268" width="580" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOr-Gp-c9q">
-                                <rect key="frame" x="340" y="64" width="54" height="36"/>
+                                <rect key="frame" x="526" y="20" width="54" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Salvar"/>
                                 <connections>
@@ -1016,44 +1014,44 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBY-0Z-yF9">
-                                <rect key="frame" x="20" y="201" width="35.5" height="28.5"/>
+                                <rect key="frame" x="20" y="157" width="35.5" height="28.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pontuação Máxima" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zc6-bf-ceU">
-                                <rect key="frame" x="20" y="278.5" width="168" height="28.5"/>
+                                <rect key="frame" x="20" y="234.5" width="168" height="28.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k3L-CE-c0e">
-                                <rect key="frame" x="10" y="157" width="394" height="34"/>
+                                <rect key="frame" x="10" y="113" width="580" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nós" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ0-k5-gaU">
-                                <rect key="frame" x="20" y="120" width="31.5" height="27"/>
+                                <rect key="frame" x="20" y="76" width="31.5" height="27"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NmE-u8-cpn">
-                                <rect key="frame" x="10" y="234.5" width="394" height="34"/>
+                                <rect key="frame" x="10" y="190.5" width="580" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All icons made by Freepik from www.flaticon.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uR8-Bo-tBY">
-                                <rect key="frame" x="68.5" y="366" width="277.5" height="14.5"/>
+                                <rect key="frame" x="161.5" y="322" width="277.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ung-2c-guO">
-                                <rect key="frame" x="20" y="430.5" width="374" height="271.5"/>
+                                <rect key="frame" x="20" y="386.5" width="560" height="271.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baixe também:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhN-tX-0Ed">
-                                        <rect key="frame" x="118" y="110" width="138" height="29"/>
+                                        <rect key="frame" x="211" y="110" width="138" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="sOE-Xh-9zp"/>
                                         </constraints>
@@ -1062,13 +1060,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpD-CW-sju">
-                                        <rect key="frame" x="0.0" y="139" width="187" height="122.5"/>
+                                        <rect key="frame" x="0.0" y="139" width="280" height="122.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mktIcon1" translatesAutoresizingMaskIntoConstraints="NO" id="Bdh-qx-u2B">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="122.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="122.5"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOh-Km-vD8">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="122.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="122.5"/>
                                                 <connections>
                                                     <action selector="dispensadoMKT:" destination="6DI-BU-dpW" eventType="touchUpInside" id="9ex-jf-jcF"/>
                                                 </connections>
@@ -1087,13 +1085,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsR-sh-2Qd">
-                                        <rect key="frame" x="187" y="139" width="187" height="122.5"/>
+                                        <rect key="frame" x="280" y="139" width="280" height="122.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mktIcon2" translatesAutoresizingMaskIntoConstraints="NO" id="rK1-Ci-BhM">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="122.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="122.5"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW7-Qy-alB">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="122.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="122.5"/>
                                                 <connections>
                                                     <action selector="suecaMKT:" destination="6DI-BU-dpW" eventType="touchUpInside" id="Jml-ZM-jYp"/>
                                                 </connections>
@@ -1112,7 +1110,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykw-dv-tmk">
-                                        <rect key="frame" x="10" y="0.0" width="354" height="60"/>
+                                        <rect key="frame" x="10" y="0.0" width="540" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="aiQ-z7-0OI"/>
                                         </constraints>
@@ -1121,11 +1119,11 @@
                                             <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="seeAds:" destination="6DI-BU-dpW" eventType="touchUpInside" id="Y15-Pb-hXm"/>
+                                            <action selector="showAds:" destination="6DI-BU-dpW" eventType="touchUpInside" id="Y15-Pb-hXm"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retirar Propagandas Hoje" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiM-Nl-JAu">
-                                        <rect key="frame" x="10" y="-9" width="354" height="60"/>
+                                        <rect key="frame" x="10" y="-9" width="540" height="60"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="23"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1151,7 +1149,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efx-AR-EDk">
-                                <rect key="frame" x="20" y="64" width="78" height="36"/>
+                                <rect key="frame" x="20" y="20" width="78" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Cancelar"/>
                                 <connections>
@@ -1218,30 +1216,30 @@
                         <viewControllerLayoutGuide type="bottom" id="xIJ-9Z-JIY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SaQ-Jn-CFM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood edit" translatesAutoresizingMaskIntoConstraints="NO" id="VLh-qe-g1v">
-                                <rect key="frame" x="0.0" y="-443" width="414" height="1792"/>
+                                <rect key="frame" x="0.0" y="-300" width="600" height="1200"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVN-E6-YCE" userLabel="RateSlider">
-                                <rect key="frame" x="20" y="363" width="374" height="173"/>
+                                <rect key="frame" x="20" y="319" width="560" height="116"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="liW-T4-3bs">
-                                        <rect key="frame" x="8" y="133" width="358" height="31"/>
+                                        <rect key="frame" x="8" y="76" width="544" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="sliderRateUpdatingValue:" destination="wcD-ML-3zf" eventType="valueChanged" id="Ib7-bl-Fgw"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-VU-3ZB">
-                                        <rect key="frame" x="315" y="67.5" width="39" height="38.5"/>
+                                        <rect key="frame" x="501" y="38.5" width="39" height="38.5"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="27"/>
                                         <color key="textColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="741-IM-l3M">
-                                        <rect key="frame" x="20" y="69" width="127.5" height="35.5"/>
+                                        <rect key="frame" x="20" y="40" width="127.5" height="35.5"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                         <color key="textColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -1259,23 +1257,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YmJ-nB-CAq" userLabel="PitchSlider">
-                                <rect key="frame" x="20" y="536" width="374" height="173"/>
+                                <rect key="frame" x="20" y="435" width="560" height="115.5"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="lzp-GI-J2J">
-                                        <rect key="frame" x="8" y="133" width="358" height="31"/>
+                                        <rect key="frame" x="8" y="75.5" width="544" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="sliderPitchUpdatingValue:" destination="wcD-ML-3zf" eventType="valueChanged" id="vk6-Z4-5vu"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVV-WZ-N5x">
-                                        <rect key="frame" x="315" y="67.5" width="39" height="38.5"/>
+                                        <rect key="frame" x="501" y="38.5" width="39" height="38.5"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="27"/>
                                         <color key="textColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timbre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK8-Cm-QvG">
-                                        <rect key="frame" x="20" y="69" width="79" height="35.5"/>
+                                        <rect key="frame" x="20" y="40" width="79" height="35.5"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                         <color key="textColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -1293,7 +1291,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hj-a5-fKv">
-                                <rect key="frame" x="348" y="54" width="56" height="34"/>
+                                <rect key="frame" x="534" y="10" width="56" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Fechar"/>
                                 <connections>
@@ -1301,7 +1299,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3L-FQ-ieZ">
-                                <rect key="frame" x="0.0" y="108" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ativar Som" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZE-lv-3bI">
                                         <rect key="frame" x="10" y="10" width="129.5" height="35.5"/>
@@ -1310,7 +1308,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Key-d0-IQd">
-                                        <rect key="frame" x="355" y="12" width="51" height="31"/>
+                                        <rect key="frame" x="541" y="12" width="51" height="31"/>
                                         <connections>
                                             <action selector="activeSound:" destination="wcD-ML-3zf" eventType="valueChanged" id="Jhd-Qd-qmW"/>
                                         </connections>
@@ -1327,7 +1325,7 @@
                                 </constraints>
                             </view>
                             <pickerView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eB3-lE-m0d">
-                                <rect key="frame" x="0.0" y="163" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="119" width="600" height="200"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="tintColor" red="0.90378038579999997" green="0.90378038579999997" blue="0.90378038579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
