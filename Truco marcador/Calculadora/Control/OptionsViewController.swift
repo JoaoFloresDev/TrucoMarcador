@@ -9,19 +9,17 @@
 
 import UIKit
 import Foundation
-import StoreKit
-import InAppPurchase
-import SwiftyStoreKit
+import GoogleMobileAds
 
-class OptionsViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
+class OptionsViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, GADRewardBasedVideoAdDelegate {
+    
     
     var defaults = UserDefaults.standard
     var buyButtonHandler: ((_ product: SKProduct) -> Void)?
     var products: [SKProduct] = []
+    var showAds = false
     
     //MARK: - OUTLETS
-    @IBOutlet weak var MktView: UIView!
-    
     @IBOutlet weak var usTeamTextBox: UITextField!
     @IBOutlet weak var theyTeamTextBox: UITextField!
     @IBOutlet weak var maxPointsTextBox: UITextField!
@@ -49,7 +47,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    @IBAction func dismissView(_ sender: Any) {
+    @IBAction func savaUpdatesAndCancel(_ sender: Any) {
         self.atualizeNames()
         self.dismiss(animated: true, completion: nil)
     }
@@ -58,43 +56,22 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func pursheInApp(_ sender: Any) {
-        reload()
+    @IBAction func seeAds(_ sender: Any) {
+        let alert = UIAlertController(title: "Assista até o final", message: "Assista o vídeo até o final para receber recompensa", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.ConfirmationReset()
+
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
-    @objc func reload() {
-      products = []
-      
-      
-      RazeFaceProducts.store.requestProducts{ [weak self] success, products in
-        guard let self = self else { return }
-        if success {
-          self.products = products!
-        let isProductPurchased = RazeFaceProducts.store.isProductPurchased(self.products[0].productIdentifier)
-            if(!isProductPurchased) {
-                RazeFaceProducts.store.buyProduct(self.products[0])
-            } else {
-                print("já adquirido")
-                self.MktView.removeFromSuperview()
-            }
+    func ConfirmationReset() {
+        showAds = true
+        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+          GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+        } else { GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+            withAdUnitID: "ca-app-pub-8858389345934911/5418678877")
         }
-      }
-    }
-    
-     func ConfirmationReset() {
-        let refreshAlert = UIAlertController(title: "Deseja reiniciar a partida?", message: nil, preferredStyle: UIAlertController.Style.alert)
-        
-        refreshAlert.modalPresentationStyle = .popover
-        
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            print("Cancel pressed")
-        }))
-        
-        refreshAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Cancel pressed")
-        }))
-        
-        present(refreshAlert, animated: true, completion: nil)
     }
     
     //MARK: - LIFECYCLE
@@ -116,10 +93,14 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         self.usTeamTextBox.delegate = self
         self.theyTeamTextBox.delegate = self
         self.maxPointsTextBox.delegate = self
-        
-        if(defaults.bool(forKey: "Purchased")) {
-            MktView.removeFromSuperview()
-        }
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
+    GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+                                                    withAdUnitID: "ca-app-pub-8858389345934911/5418678877")
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        showAds = false
     }
     
     //MARK: - METHODS
@@ -222,9 +203,45 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
-        
         let imageLayer = viewlayer
         imageLayer.cornerRadius = CGFloat(cornerRadius)
         imageLayer.masksToBounds = true
+    }
+    
+//    MARK: - ADS
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+        didRewardUserWith reward: GADAdReward) {
+      print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+    }
+
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+      print("Reward based video ad is received.")
+        if(showAds) {
+            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+        }
+    }
+
+    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("A equipe Truco Marcador agradece pela ajuda! bom jogo!")
+        print("------------------------------------")
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let result = formatter.string(from: date)
+        print(result)
+        showAds = false
+    }
+
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+      print("Você fechou o vídeo, é preciso ver até o fim")
+        print("------------------------------------")
+        showAds = false
+    }
+
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+        didFailToLoadWithError error: Error) {
+      print("Falha ao carregar, tente novamente")
+        showAds = false
     }
 }

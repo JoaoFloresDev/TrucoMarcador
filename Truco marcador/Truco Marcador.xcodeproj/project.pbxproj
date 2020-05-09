@@ -23,11 +23,6 @@
 		C4802DD1245FCA7B001540B4 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4802DD0245FCA7B001540B4 /* NetworkActivityIndicatorManager.swift */; };
 		C4885CF1236C5568004B1556 /* PointsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF0236C5568004B1556 /* PointsClass.swift */; };
 		C4885CF5236CBADC004B1556 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF3236CBADC004B1556 /* CardsViewController.swift */; };
-		C4971E022460E768002CD995 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4971DFD2460E766002CD995 /* MasterViewController.swift */; };
-		C4971E032460E768002CD995 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4971DFE2460E766002CD995 /* DetailViewController.swift */; };
-		C4971E042460E768002CD995 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4971DFF2460E767002CD995 /* IAPHelper.swift */; };
-		C4971E052460E768002CD995 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4971E002460E767002CD995 /* ProductCell.swift */; };
-		C4971E062460E768002CD995 /* RazeFaceProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4971E012460E767002CD995 /* RazeFaceProducts.swift */; };
 		C4B220FA24565704003C656E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B220F924565704003C656E /* StoreKit.framework */; };
 		C4F3827023CDED6300E373EA /* Truco_MarcadorMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3826F23CDED6300E373EA /* Truco_MarcadorMockTests.swift */; };
 		E601187AC62B9C8C5FA0489D /* Pods_Truco_MarcadorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C630DAE393176A5034D2A0 /* Pods_Truco_MarcadorTests.framework */; };
@@ -74,11 +69,6 @@
 		C4802DD0245FCA7B001540B4 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		C4885CF0236C5568004B1556 /* PointsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsClass.swift; sourceTree = "<group>"; };
 		C4885CF3236CBADC004B1556 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
-		C4971DFD2460E766002CD995 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		C4971DFE2460E766002CD995 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		C4971DFF2460E767002CD995 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
-		C4971E002460E767002CD995 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
-		C4971E012460E767002CD995 /* RazeFaceProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RazeFaceProducts.swift; sourceTree = "<group>"; };
 		C4B220F924565704003C656E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C4EE900E245E4EF6005029DC /* Truco Marcador.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Truco Marcador.entitlements"; sourceTree = "<group>"; };
 		C4F3826D23CDED6300E373EA /* Truco MarcadorMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Truco MarcadorMockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,11 +201,6 @@
 		C4159DE223A828ED0021F5C5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				C4971DFE2460E766002CD995 /* DetailViewController.swift */,
-				C4971DFF2460E767002CD995 /* IAPHelper.swift */,
-				C4971DFD2460E766002CD995 /* MasterViewController.swift */,
-				C4971E002460E767002CD995 /* ProductCell.swift */,
-				C4971E012460E767002CD995 /* RazeFaceProducts.swift */,
 				C4159DE323A828FC0021F5C5 /* KeyboardAvoiding.swift */,
 				C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */,
 			);
@@ -465,11 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D6EA1082237EBE500174399 /* TrucoViewController.swift in Sources */,
-				C4971E042460E768002CD995 /* IAPHelper.swift in Sources */,
 				C4159DE423A828FC0021F5C5 /* KeyboardAvoiding.swift in Sources */,
-				C4971E022460E768002CD995 /* MasterViewController.swift in Sources */,
-				C4971E032460E768002CD995 /* DetailViewController.swift in Sources */,
-				C4971E052460E768002CD995 /* ProductCell.swift in Sources */,
 				C4159DE123A8206D0021F5C5 /* OptionsViewController.swift in Sources */,
 				3D6EA1062237EBE500174399 /* AppDelegate.swift in Sources */,
 				C4159DDF23A81D0B0021F5C5 /* Functions.swift in Sources */,
@@ -477,7 +458,6 @@
 				C4885CF5236CBADC004B1556 /* CardsViewController.swift in Sources */,
 				3D6EA11A2238362800174399 /* Calculator.swift in Sources */,
 				C4885CF1236C5568004B1556 /* PointsClass.swift in Sources */,
-				C4971E062460E768002CD995 /* RazeFaceProducts.swift in Sources */,
 				C4802DD1245FCA7B001540B4 /* NetworkActivityIndicatorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,7 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Truco Marcador.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -665,7 +645,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 23;
+				MARKETING_VERSION = 24;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;
@@ -680,7 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Truco Marcador.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -689,7 +669,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 23;
+				MARKETING_VERSION = 24;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;

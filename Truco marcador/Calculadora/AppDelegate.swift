@@ -8,14 +8,11 @@
 
 import UIKit
 import GoogleMobileAds
-import InAppPurchase
-import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var products: [SKProduct] = []
     var defaults = UserDefaults.standard
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -23,18 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-
-        RazeFaceProducts.store.requestProducts{ [weak self] success, products in
-          guard let self = self else { return }
-          if success {
-            self.products = products!
-          let isProductPurchased = RazeFaceProducts.store.isProductPurchased(self.products[0].productIdentifier)
-              if(isProductPurchased) {
-                  print("já adquirido")
-                  self.defaults.set(true, forKey: "Purchased")
-              }
-          }
-        }
         
         return true
     }
