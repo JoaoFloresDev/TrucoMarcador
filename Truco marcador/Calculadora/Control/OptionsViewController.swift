@@ -15,9 +15,6 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     
     //MARK: - Variables
     var defaults = UserDefaults.standard
-    var buyButtonHandler: ((_ product: SKProduct) -> Void)?
-    var products: [SKProduct] = []
-    var showAds = false
     
     //MARK: - OUTLETS
     @IBOutlet weak var usTeamTextBox: UITextField!
@@ -68,10 +65,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         self.maxPointsTextBox.delegate = self
         
         setupAds()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        showAds = false
+        print("setupAds -----------")
     }
     
     //MARK: - Defaults
@@ -79,6 +73,19 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         setUsersDefault(newUsTeamName: usTeamTextBox.text ?? "", newTheyTeamName: theyTeamTextBox.text ?? "", newMaxPoints: maxPointsTextBox.text ?? "12")
     }
     
+    func populateInitialDefault() {
+        setUsersDefault(newUsTeamName: "Nós", newTheyTeamName: "Eles", newMaxPoints: "12")
+    }
+    
+    func checkFirstGame(){
+        if(!defaults.bool(forKey: "NoFirsGame")) {
+            defaults.set(true, forKey: "NoFirsGame")
+            defaults.set(12, forKey: "maxPoints")
+            setUsersDefault(newUsTeamName: "Nós", newTheyTeamName: "Eles", newMaxPoints: "12")
+        }
+    }
+   
+    //MARK: - Save Changes
     func setUsersDefault(newUsTeamName: String, newTheyTeamName: String, newMaxPoints: String) {
         if(newUsTeamName != "") {
             defaults.set (newUsTeamName, forKey: "usTeamName")
@@ -94,22 +101,11 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    func populateInitialDefault() {
-        setUsersDefault(newUsTeamName: "Nós", newTheyTeamName: "Eles", newMaxPoints: "12")
-    }
-    
-    func checkFirstGame(){
-        if(!defaults.bool(forKey: "NoFirsGame")) {
-            defaults.set(true, forKey: "NoFirsGame")
-            defaults.set(12, forKey: "maxPoints")
-            setUsersDefault(newUsTeamName: "Nós", newTheyTeamName: "Eles", newMaxPoints: "12")
-        }
-    }
-   
     //    MARK: - Alerts
     fileprivate func alertBeginAds() {
         let alert = UIAlertController(title: "Assista até o final", message: "Assista o vídeo até o final para receber recompensa", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            print("--------- ConfirmationReset()")
             self.ConfirmationReset()
             
         }))
@@ -146,16 +142,14 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     func setupAds() {
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-8858389345934911/5418678877")
+                                                    withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
+//        ca-app-pub-8858389345934911/5418678877
         GADRewardBasedVideoAd.sharedInstance().delegate = self
     }
     
     func ConfirmationReset() {
-        showAds = true
         if GADRewardBasedVideoAd.sharedInstance().isReady == true {
             GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-        } else {
-            print("------------------------------------aqui")
         }
     }
     
@@ -167,9 +161,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
         print("Reward based video ad is received.")
         print("------------------------------------")
-//        if(showAds) {
-            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-//        }
+        GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
     }
     
     func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
@@ -181,20 +173,20 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         formatter.dateFormat = "dd.MM.yyyy"
         let result = formatter.string(from: date)
         print(result)
-        showAds = false
     }
     
     func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
         print("Você fechou o vídeo, é preciso ver até o fim")
         print("------------------------------------")
-        showAds = false
+        
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+        withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
     }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didFailToLoadWithError error: Error) {
         print("Falha ao carregar, tente novamente")
         print("------------------------------------")
-        showAds = false
     }
     
     //MARK: - KEYBOARD
