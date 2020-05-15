@@ -1110,18 +1110,18 @@
                                 <constraints>
                                     <constraint firstItem="XAd-eU-wVP" firstAttribute="top" secondItem="aD3-UP-Zyo" secondAttribute="top" id="3Ms-IE-uCC"/>
                                     <constraint firstItem="A2T-Sm-pmE" firstAttribute="leading" secondItem="Q3P-dN-fZU" secondAttribute="trailing" id="4XY-9b-4XH"/>
-                                    <constraint firstItem="A2T-Sm-pmE" firstAttribute="width" secondItem="XAd-eU-wVP" secondAttribute="width" multiplier="0.333333" id="LFF-CQ-dFo"/>
                                     <constraint firstItem="Q3P-dN-fZU" firstAttribute="top" secondItem="2af-rk-ULZ" secondAttribute="top" id="Ml1-KU-MYO"/>
-                                    <constraint firstItem="DEL-qK-JU5" firstAttribute="width" secondItem="XAd-eU-wVP" secondAttribute="width" multiplier="0.333333" id="OW6-gA-Iun"/>
-                                    <constraint firstItem="Q3P-dN-fZU" firstAttribute="width" secondItem="XAd-eU-wVP" secondAttribute="width" multiplier="0.333333" id="avD-Qc-FLn"/>
                                     <constraint firstItem="XAd-eU-wVP" firstAttribute="width" secondItem="aD3-UP-Zyo" secondAttribute="width" multiplier="3" id="awo-id-HoP"/>
                                     <constraint firstAttribute="bottom" secondItem="DEL-qK-JU5" secondAttribute="bottom" id="bPf-H6-bKk"/>
+                                    <constraint firstAttribute="trailing" secondItem="A2T-Sm-pmE" secondAttribute="trailing" id="ct2-gF-mYe"/>
                                     <constraint firstAttribute="bottom" secondItem="A2T-Sm-pmE" secondAttribute="bottom" id="d4P-f1-iK3"/>
                                     <constraint firstItem="A2T-Sm-pmE" firstAttribute="top" secondItem="aD3-UP-Zyo" secondAttribute="top" id="dRw-Zh-msj"/>
                                     <constraint firstItem="Q3P-dN-fZU" firstAttribute="leading" secondItem="DEL-qK-JU5" secondAttribute="trailing" id="dRy-pb-JT0"/>
                                     <constraint firstItem="DEL-qK-JU5" firstAttribute="leading" secondItem="aD3-UP-Zyo" secondAttribute="leading" id="efu-za-MQv"/>
                                     <constraint firstItem="DEL-qK-JU5" firstAttribute="top" secondItem="aD3-UP-Zyo" secondAttribute="top" id="gvI-dl-0OF"/>
+                                    <constraint firstItem="A2T-Sm-pmE" firstAttribute="width" secondItem="DEL-qK-JU5" secondAttribute="width" id="n5B-kV-Kzd"/>
                                     <constraint firstAttribute="trailing" secondItem="XAd-eU-wVP" secondAttribute="trailing" id="s1M-gv-vgg"/>
+                                    <constraint firstItem="Q3P-dN-fZU" firstAttribute="width" secondItem="DEL-qK-JU5" secondAttribute="width" id="s7q-hi-Rvr"/>
                                     <constraint firstItem="XAd-eU-wVP" firstAttribute="leading" secondItem="aD3-UP-Zyo" secondAttribute="leading" id="vN5-Qa-uSc"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="2af-rk-ULZ"/>
@@ -1183,7 +1183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S74-4h-QeK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1940.5797101449277" y="-887.27678571428567"/>
+            <point key="canvasLocation" x="1229" y="-688"/>
         </scene>
         <!--Main-->
         <scene sceneID="MCS-Zs-Eka">

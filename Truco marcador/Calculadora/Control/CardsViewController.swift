@@ -30,22 +30,19 @@ class CardsViewController: UIViewController {
         case 0:
 //            paulista
             print("paulista")
-            let targetRect = CGRect(x: 0, y:0, width: 1, height: 1)
-            scrollViewRules.scrollRectToVisible(targetRect, animated: true)
+            let newOffset = CGPoint(x: 0, y: 0)
+            scrollViewRules.setContentOffset(newOffset, animated: true)
             
         case 1:
 //            mineiro
             print("mineiro")
-            let targetRect = CGRect(x: backgroundView.frame.width*2, y:0, width: 1, height: 1)
-            scrollViewRules.scrollRectToVisible(targetRect, animated: true)
-            
+            let newOffset = CGPoint(x: scrollViewRules.contentSize.width/3, y: 0)
+            scrollViewRules.setContentOffset(newOffset, animated: true)
         
         default:
-//            gaucho
             print("gaucho")
-            print(backgroundView.frame.width*3)
-            let targetRect = CGRect(x: backgroundView.frame.width*3 - 100, y:0, width: 1, height: 1)
-            scrollViewRules.scrollRectToVisible(targetRect, animated: true)
+            let newOffset = CGPoint(x: scrollViewRules.contentSize.width*2/3, y: 0)
+            scrollViewRules.setContentOffset(newOffset, animated: true)
         }
     }
         override func viewDidLoad() {
