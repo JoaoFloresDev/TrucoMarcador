@@ -15,7 +15,7 @@ import GoogleMobileAds
 class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBannerViewDelegate {
     
     var bannerView: GADBannerView!
-//    @IBOutlet weak var bannerVIewPlaceHolder: UIView!
+    @IBOutlet weak var bannerVIewPlaceHolder: UIView!
     
     let synth = AVSpeechSynthesizer()
     

@@ -11,12 +11,13 @@ import UIKit
 class CardsViewController: UIViewController {
 
     
+    @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var Gaudério: UIView!
     @IBOutlet weak var paulistaList: UIView!
     @IBOutlet weak var mineiro: UIView!
     
+    @IBOutlet weak var scrollViewRules: UIScrollView!
     @IBOutlet weak var segmentRules: UISegmentedControl!
-    @IBOutlet weak var label3: UILabel!
     
     @IBAction func close(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -28,28 +29,27 @@ class CardsViewController: UIViewController {
         {
         case 0:
 //            paulista
-            Gaudério.alpha = 0
-            paulistaList.alpha = 1
-            mineiro.alpha = 0
+            print("paulista")
+            let targetRect = CGRect(x: 0, y:0, width: 1, height: 1)
+            scrollViewRules.scrollRectToVisible(targetRect, animated: true)
             
         case 1:
 //            mineiro
-            Gaudério.alpha = 0
-            paulistaList.alpha = 0
-            mineiro.alpha = 1
+            print("mineiro")
+            let targetRect = CGRect(x: backgroundView.frame.width*2, y:0, width: 1, height: 1)
+            scrollViewRules.scrollRectToVisible(targetRect, animated: true)
             
+        
         default:
 //            gaucho
-            Gaudério.alpha = 1
-            paulistaList.alpha = 0
-            mineiro.alpha = 0
+            print("gaucho")
+            print(backgroundView.frame.width*3)
+            let targetRect = CGRect(x: backgroundView.frame.width*3 - 100, y:0, width: 1, height: 1)
+            scrollViewRules.scrollRectToVisible(targetRect, animated: true)
         }
     }
         override func viewDidLoad() {
             segmentRules.selectedSegmentIndex = 0
-            Gaudério.alpha = 0
-           paulistaList.alpha = 1
-           mineiro.alpha = 0
     }
     
 override var preferredStatusBarStyle: UIStatusBarStyle {
