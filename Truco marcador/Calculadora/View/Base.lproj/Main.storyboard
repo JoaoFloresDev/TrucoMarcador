@@ -80,22 +80,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayo-Pl-cpJ">
-                                <rect key="frame" x="71" y="419" width="70" height="160"/>
+                                <rect key="frame" x="76" y="419" width="60" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTB-sf-E30">
-                                        <rect key="frame" x="0.0" y="90" width="70" height="70"/>
+                                        <rect key="frame" x="0.0" y="80" width="60" height="60"/>
                                         <state key="normal" title="Button" image="sub"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPs-4F-Wd3">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <state key="normal" title="Button" image="add"/>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="HTB-sf-E30" secondAttribute="trailing" id="3Dr-ID-JeT"/>
-                                    <constraint firstAttribute="width" constant="70" id="FHF-lC-YrF"/>
+                                    <constraint firstAttribute="width" constant="60" id="FHF-lC-YrF"/>
                                     <constraint firstAttribute="trailing" secondItem="FPs-4F-Wd3" secondAttribute="trailing" id="If2-dO-vaN"/>
-                                    <constraint firstAttribute="height" constant="160" id="NLD-wI-Qbl"/>
+                                    <constraint firstAttribute="height" constant="140" id="NLD-wI-Qbl"/>
                                     <constraint firstItem="FPs-4F-Wd3" firstAttribute="top" secondItem="ayo-Pl-cpJ" secondAttribute="top" id="S6y-qG-Yld"/>
                                     <constraint firstItem="HTB-sf-E30" firstAttribute="leading" secondItem="ayo-Pl-cpJ" secondAttribute="leading" id="bha-am-PG2"/>
                                     <constraint firstItem="HTB-sf-E30" firstAttribute="top" secondItem="FPs-4F-Wd3" secondAttribute="bottom" constant="20" id="c8B-hO-P2M"/>
@@ -105,24 +105,24 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Nn-uM-d9k">
-                                <rect key="frame" x="273" y="419" width="70" height="160"/>
+                                <rect key="frame" x="278" y="419" width="60" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-nt-jnf">
-                                        <rect key="frame" x="0.0" y="90" width="70" height="70"/>
+                                        <rect key="frame" x="0.0" y="80" width="60" height="60"/>
                                         <state key="normal" title="Button" image="sub"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itc-St-P5w">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <state key="normal" title="Button" image="add"/>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="9pQ-nt-jnf" firstAttribute="top" secondItem="itc-St-P5w" secondAttribute="bottom" constant="20" id="5CK-71-hiO"/>
-                                    <constraint firstAttribute="height" constant="160" id="5Hl-BD-Vrh"/>
+                                    <constraint firstAttribute="height" constant="140" id="5Hl-BD-Vrh"/>
                                     <constraint firstItem="9pQ-nt-jnf" firstAttribute="leading" secondItem="6Nn-uM-d9k" secondAttribute="leading" id="AJF-uQ-GKs"/>
                                     <constraint firstAttribute="trailing" secondItem="itc-St-P5w" secondAttribute="trailing" id="KGC-jQ-yVt"/>
                                     <constraint firstItem="itc-St-P5w" firstAttribute="leading" secondItem="6Nn-uM-d9k" secondAttribute="leading" id="LFr-87-hGr"/>
-                                    <constraint firstAttribute="width" constant="70" id="OGR-Bl-UFI"/>
+                                    <constraint firstAttribute="width" constant="60" id="OGR-Bl-UFI"/>
                                     <constraint firstAttribute="trailing" secondItem="9pQ-nt-jnf" secondAttribute="trailing" id="Xcf-Pw-I5t"/>
                                     <constraint firstItem="itc-St-P5w" firstAttribute="height" secondItem="9pQ-nt-jnf" secondAttribute="height" id="iHf-Sa-9tq"/>
                                     <constraint firstItem="itc-St-P5w" firstAttribute="top" secondItem="6Nn-uM-d9k" secondAttribute="top" id="mGF-VY-mBF"/>
@@ -320,6 +320,8 @@
                         <outlet property="bannerVIewPlaceHolder" destination="cEY-RM-Idm" id="nMw-op-0Hv"/>
                         <outlet property="blackButtonSpeach" destination="Fcn-SS-fkq" id="tts-R1-9gz"/>
                         <outlet property="buttonTutorial" destination="fbT-oG-3lZ" id="EIH-FD-bPF"/>
+                        <outlet property="buttonsPointsTeam1" destination="ayo-Pl-cpJ" id="gHf-hC-yFn"/>
+                        <outlet property="buttonsPointsTeam2" destination="6Nn-uM-d9k" id="G5e-dv-EMR"/>
                         <outlet property="gamesTeam1" destination="DRc-5z-q5c" id="Uff-q5-Hvr"/>
                         <outlet property="gamesTeam2" destination="iHa-RP-6hP" id="2W3-La-CbI"/>
                         <outlet property="mainImageView" destination="VKi-5E-yae" id="Lfy-aA-o3b"/>
@@ -1448,6 +1450,9 @@
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivc-QG-i2x">
                                         <rect key="frame" x="355" y="4.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="actionSwitch:" destination="6DI-BU-dpW" eventType="valueChanged" id="FjD-yf-QCO"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Botões de ponto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnm-n7-Tsy">
                                         <rect key="frame" x="10" y="6" width="145" height="28.5"/>
@@ -1506,6 +1511,7 @@
                     <navigationItem key="navigationItem" id="cKV-45-rwt"/>
                     <connections>
                         <outlet property="maxPointsTextBox" destination="guD-43-iyK" id="Ote-l3-vRI"/>
+                        <outlet property="switchButtonsShow" destination="ivc-QG-i2x" id="ytZ-91-dks"/>
                         <outlet property="theyTeamTextBox" destination="NmE-u8-cpn" id="FHc-xD-czZ"/>
                         <outlet property="usTeamTextBox" destination="k3L-CE-c0e" id="U4a-6z-qU1"/>
                     </connections>

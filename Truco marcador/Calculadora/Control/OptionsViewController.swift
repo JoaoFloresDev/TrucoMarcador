@@ -16,11 +16,20 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     var defaults = UserDefaults.standard
     
     //MARK: - OUTLETS
-    //        UIApplication.shared.openURL(NSURL(string: "https://www.whdecks.com.br/")! as URL)
-    
     @IBOutlet weak var usTeamTextBox: UITextField!
     @IBOutlet weak var theyTeamTextBox: UITextField!
     @IBOutlet weak var maxPointsTextBox: UITextField!
+    @IBOutlet weak var switchButtonsShow: UISwitch!
+    
+    //MARK: - Actions
+    @IBAction func actionSwitch(_ sender: Any) {
+        if(switchButtonsShow.isOn){
+            defaults.set(true, forKey: "ShowButtons")
+        }
+        else {
+            defaults.set(false, forKey: "ShowButtons")
+        }
+    }
     
     @IBAction func suecaMKT(_ sender: Any) {
         let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1491372792?mt=8&uo=4"
@@ -68,6 +77,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         if(checkFirsGame()) {
             populateDefault()
         }
+        
         usTeamTextBox.placeholder = defaults.string(forKey: "usTeamName") ?? "Nós"
         theyTeamTextBox.placeholder = defaults.string(forKey: "theyTeamName") ?? "Eles"
         maxPointsTextBox.placeholder = String(defaults.integer(forKey: "maxPoints"))
@@ -81,6 +91,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         self.usTeamTextBox.delegate = self
         self.theyTeamTextBox.delegate = self
         self.maxPointsTextBox.delegate = self
+        switchButtonsShow.setOn(defaults.bool(forKey: "ShowButtons"), animated: true)
     }
     
     //MARK: - METHODS

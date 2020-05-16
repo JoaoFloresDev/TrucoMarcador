@@ -15,7 +15,6 @@ import GoogleMobileAds
 class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBannerViewDelegate {
     
     var bannerView: GADBannerView!
-    @IBOutlet weak var bannerVIewPlaceHolder: UIView!
     
     let synth = AVSpeechSynthesizer()
     
@@ -35,25 +34,25 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     var maxFont = 65
     var regularFont = 60
     var inAnimate = true
-    var ratingShow = false
     var rateControll = 0
     
     //    MARK: -  IBOutlet
+    @IBOutlet weak var buttonsPointsTeam1: UIView!
+    @IBOutlet weak var buttonsPointsTeam2: UIView!
+    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
-    
     @IBOutlet weak var whiteButtonsSpeach: UIImageView!
     @IBOutlet weak var blackButtonSpeach: UIImageView!
+    @IBOutlet weak var backGroundBlack: UIImageView!
+    @IBOutlet weak var backGoundImg: UIImageView!
+    @IBOutlet var ImagesTutorial: [UIImageView]!
     
     @IBOutlet weak var usTeamName: UILabel!
     @IBOutlet weak var theyTeamName: UILabel!
-    
-    @IBOutlet weak var backGroundBlack: UIImageView!
     @IBOutlet var LabelsTutorial: [UILabel]!
-    @IBOutlet var ImagesTutorial: [UIImageView]!
-    @IBOutlet weak var buttonTutorial: UIButton!
     
-    @IBOutlet weak var backGoundImg: UIImageView!
+    @IBOutlet weak var buttonTutorial: UIButton!
     
     //    labels rounds and games
     @IBOutlet weak var roundTeam1: UILabel!
@@ -61,61 +60,11 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     @IBOutlet weak var gamesTeam1: UILabel!
     @IBOutlet weak var gamesTeam2: UILabel!
     
-    //    MARK: - IBAction
+    @IBOutlet weak var bannerVIewPlaceHolder: UIView!
     
+    //    MARK: - IBAction
     @IBAction func speachAction(_ sender: Any) {
-        
-    AudioServicesPlaySystemSound(SystemSoundID(1002))
-        
-        var myUtterance = AVSpeechUtterance(string: "Truuuco Marreco")
-        
-        delayWithSeconds(0.5) {
-            let rand =  Int.random(in: 0...3)
-            switch rand {
-            case 0:
-                myUtterance = AVSpeechUtterance(string: "Trururururururuco, Muito fácil com freguêis, quem vai pedir seis??")
-                
-                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
-                    myUtterance.pitchMultiplier = 0.5
-                myUtterance.volume = 10
-                myUtterance.postUtteranceDelay =  0
-
-                    self.synth.speak(myUtterance)
-                
-            case 1:
-                myUtterance = AVSpeechUtterance(string: "Trururururururuco Marreco!!!")
-                
-                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
-                    myUtterance.pitchMultiplier = 0.5
-                myUtterance.volume = 10
-                myUtterance.postUtteranceDelay =  0
-
-                    self.synth.speak(myUtterance)
-                
-            case 2:
-                myUtterance = AVSpeechUtterance(string: "truquei e ta trucado.. quem eh o marreco que ficou melado??")
-                
-                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
-                    myUtterance.pitchMultiplier = 0.5
-                myUtterance.volume = 10
-                myUtterance.postUtteranceDelay =  0
-
-                    self.synth.speak(myUtterance)
-            default:
-                myUtterance = AVSpeechUtterance(string: "Minhoca não tem osso, banana não tem caroço, TRUCO seu moço")
-                
-                    myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
-                    myUtterance.rate = self.defaults.float(forKey: "rateValue")
-                    myUtterance.pitchMultiplier = 0.5
-                myUtterance.volume = 10
-                myUtterance.postUtteranceDelay =  0
-
-                    self.synth.speak(myUtterance)
-            }
-        }
+        speechAction()
     }
     
     @IBAction func finishTutorial(_ sender: Any) {
@@ -127,36 +76,45 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     }
     
     //   MARK: - LIFE CYCLE
-    
-    func finishTutorialFunc() {
-        backGroundBlack.alpha = 0
-        for x in 0 ... 2 {
-            LabelsTutorial[x].alpha = 0
-            ImagesTutorial[x].alpha = 0
-        }
-        
-        buttonTutorial.alpha = 0
-        inAnimate = false
-    }
-    
-    func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
-        
-        let imageLayer = viewlayer
-        imageLayer.cornerRadius = CGFloat(cornerRadius)
-        imageLayer.masksToBounds = true
-    }
-    
     override func viewDidLoad() {
         
         cropBounds(viewlayer: bannerVIewPlaceHolder.layer, cornerRadius: 20)
-        self.ratingShow = OptionsViewController().checkFirsGame()
+        
+        if(!OptionsViewController().checkFirsGame()) {
+            self.finishTutorialFunc()
+        }
+        
         atualizeNamesTeams()
         partida = PointsClass()
         refreshScores()
         refreshRounds()
+        setupGestures()
+        setupAds()
+        cropButtonImg()
         
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
-        
+        if(defaults.bool(forKey: "ShowButtons")) {
+            buttonsPointsTeam1.alpha = 1
+            buttonsPointsTeam2.alpha = 1
+        }
+        else {
+            buttonsPointsTeam1.alpha = 0
+            buttonsPointsTeam2.alpha = 0
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if(defaults.bool(forKey: "ShowButtons")) {
+            buttonsPointsTeam1.alpha = 1
+            buttonsPointsTeam2.alpha = 1
+        }
+        else {
+            buttonsPointsTeam1.alpha = 0
+            buttonsPointsTeam2.alpha = 0
+        }
+    }
+    
+    //   MARK: - GESTURES
+    func setupGestures() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(TrucoViewController.tap(_:)))
         self.view.addGestureRecognizer(tap)
         
@@ -167,66 +125,16 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
-        
-        cropButtonImg()
-        
-        if(UserDefaults.standard.bool(forKey: "noFirstUse")) {
-            self.finishTutorialFunc()
-        }
-        
-        bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
-        addBannerViewToView(bannerView)
-        
-        bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.rootViewController = self
-        
-        bannerView.load(GADRequest())
-        bannerView.delegate = self
     }
     
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-            [NSLayoutConstraint(item: bannerView,
-                                attribute: .bottom,
-                                relatedBy: .equal,
-                                toItem: bottomLayoutGuide,
-                                attribute: .top,
-                                multiplier: 1,
-                                constant: 0),
-             NSLayoutConstraint(item: bannerView,
-                                attribute: .centerX,
-                                relatedBy: .equal,
-                                toItem: view,
-                                attribute: .centerX,
-                                multiplier: 1,
-                                constant: 0)
-        ])
-    }
-    
-    func cropButtonImg() {
-        var imageLayer: CALayer? = whiteButtonsSpeach.layer
-        imageLayer?.cornerRadius = 29
-        imageLayer?.masksToBounds = true
-        
-        imageLayer = blackButtonSpeach.layer
-        imageLayer?.cornerRadius = 27
-        imageLayer?.masksToBounds = true
-    }
-    
-    //   MARK: - GESTURES
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if !(inAnimate) {
             
             if gesture.direction == UISwipeGestureRecognizer.Direction.up {
                 if(gesture.location(in: backGoundImg).x < backGoundImg.frame.size.width/2) {
                     partida.round1Sum3()
-//                    SpeechThreePoint(points: "Tres pontos", team: usTeamName.text!)
                 } else {
                     partida.roundT2 = partida.sum3(round: partida.roundT2)
-//                    SpeechThreePoint(points: "Tres pontos", team: usTeamName.text!)
                 }
                 
                 let currentPoint = gesture.location(in: view)
@@ -425,6 +333,18 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         self.present(optionMenu, animated: true, completion: nil)
     }
     
+//    MARK: - Tutorial
+    func finishTutorialFunc() {
+        backGroundBlack.alpha = 0
+        for x in 0 ... 2 {
+            LabelsTutorial[x].alpha = 0
+            ImagesTutorial[x].alpha = 0
+        }
+        
+        buttonTutorial.alpha = 0
+        inAnimate = false
+    }
+    
     func showTutorial() {
         backGroundBlack.alpha = 0.8
         for x in 0 ... 2 {
@@ -435,11 +355,29 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         buttonTutorial.alpha = 1
         inAnimate = true
     }
-    // MARK: - FUNCTIONS
+    
+    // MARK: - Style
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
+        
+        let imageLayer = viewlayer
+        imageLayer.cornerRadius = CGFloat(cornerRadius)
+        imageLayer.masksToBounds = true
+    }
+    
+    func cropButtonImg() {
+        var imageLayer: CALayer? = whiteButtonsSpeach.layer
+        imageLayer?.cornerRadius = 29
+        imageLayer?.masksToBounds = true
+        
+        imageLayer = blackButtonSpeach.layer
+        imageLayer?.cornerRadius = 27
+        imageLayer?.masksToBounds = true
+    }
+    // MARK: - FUNCTIONS
     func atualizeNamesTeams() {
         usTeamName.text = defaults.string(forKey: "usTeamName") ?? "Nós"
         theyTeamName.text = defaults.string(forKey: "theyTeamName") ?? "Eles"
@@ -447,7 +385,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         atualizeNamesTeams()
     }
     
@@ -456,11 +393,64 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
 
             SKStoreReviewController.requestReview()
         }
-        ratingShow = false
+    }
+    
+    // MARK: - Speech
+    func speechAction() {
+        AudioServicesPlaySystemSound(SystemSoundID(1002))
+        
+        var myUtterance = AVSpeechUtterance(string: "Truuuco Marreco")
+        
+        delayWithSeconds(0.5) {
+            let rand =  Int.random(in: 0...3)
+            switch rand {
+            case 0:
+                myUtterance = AVSpeechUtterance(string: "Trururururururuco, Muito fácil com freguêis, quem vai pedir seis??")
+                
+                myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+                
+                self.synth.speak(myUtterance)
+                
+            case 1:
+                myUtterance = AVSpeechUtterance(string: "Trururururururuco Marreco!!!")
+                
+                myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+                
+                self.synth.speak(myUtterance)
+                
+            case 2:
+                myUtterance = AVSpeechUtterance(string: "truquei e ta trucado.. quem eh o marreco que ficou melado??")
+                
+                myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+                
+                self.synth.speak(myUtterance)
+            default:
+                myUtterance = AVSpeechUtterance(string: "Minhoca não tem osso, banana não tem caroço, TRUCO seu moço")
+                
+                myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
+                myUtterance.rate = self.defaults.float(forKey: "rateValue")
+                myUtterance.pitchMultiplier = 0.5
+                myUtterance.volume = 10
+                myUtterance.postUtteranceDelay =  0
+                
+                self.synth.speak(myUtterance)
+            }
+        }
     }
     
     // MARK: - Draw
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
       guard let touch = touches.first else {
         return
@@ -529,6 +519,41 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             completion()
         }
+    }
+    
+//    MARK: - ADs
+    
+    func setupAds() {
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
+        bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
+        addBannerViewToView(bannerView)
+        
+        bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
+        bannerView.rootViewController = self
+        
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+    }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+        ])
     }
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
