@@ -82,13 +82,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayo-Pl-cpJ">
                                 <rect key="frame" x="76" y="419" width="60" height="140"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTB-sf-E30">
-                                        <rect key="frame" x="0.0" y="80" width="60" height="60"/>
-                                        <state key="normal" title="Button" image="sub"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPs-4F-Wd3">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <state key="normal" title="Button" image="add"/>
+                                        <connections>
+                                            <action selector="addTeam1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5DY-Vi-ncr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTB-sf-E30">
+                                        <rect key="frame" x="0.0" y="80" width="60" height="60"/>
+                                        <state key="normal" title="Button" image="sub"/>
+                                        <connections>
+                                            <action selector="lessTeam1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xSd-MW-Y95"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -107,13 +113,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Nn-uM-d9k">
                                 <rect key="frame" x="278" y="419" width="60" height="140"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-nt-jnf">
-                                        <rect key="frame" x="0.0" y="80" width="60" height="60"/>
-                                        <state key="normal" title="Button" image="sub"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itc-St-P5w">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <state key="normal" title="Button" image="add"/>
+                                        <connections>
+                                            <action selector="addTeam2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SSv-Qh-634"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-nt-jnf">
+                                        <rect key="frame" x="0.0" y="80" width="60" height="60"/>
+                                        <state key="normal" title="Button" image="sub"/>
+                                        <connections>
+                                            <action selector="lessTeam2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pBu-KW-3NR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1455,8 +1467,8 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Botões de ponto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnm-n7-Tsy">
-                                        <rect key="frame" x="10" y="6" width="145" height="28.5"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                        <rect key="frame" x="20" y="4.5" width="159.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1467,7 +1479,7 @@
                                     <constraint firstItem="xnm-n7-Tsy" firstAttribute="centerY" secondItem="4dG-uf-LDC" secondAttribute="centerY" id="ElK-vo-6sg"/>
                                     <constraint firstAttribute="trailing" secondItem="ivc-QG-i2x" secondAttribute="trailing" constant="10" id="bHF-qH-tay"/>
                                     <constraint firstItem="ivc-QG-i2x" firstAttribute="centerY" secondItem="4dG-uf-LDC" secondAttribute="centerY" id="ohy-8S-SFd"/>
-                                    <constraint firstItem="xnm-n7-Tsy" firstAttribute="leading" secondItem="4dG-uf-LDC" secondAttribute="leading" constant="10" id="ybg-t0-6CX"/>
+                                    <constraint firstItem="xnm-n7-Tsy" firstAttribute="leading" secondItem="4dG-uf-LDC" secondAttribute="leading" constant="20" id="ybg-t0-6CX"/>
                                 </constraints>
                             </view>
                         </subviews>

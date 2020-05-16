@@ -63,6 +63,63 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     @IBOutlet weak var bannerVIewPlaceHolder: UIView!
     
     //    MARK: - IBAction
+    @IBAction func addTeam1(_ sender: Any) {
+        if !(inAnimate) {
+            partida.roundT1 = partida.sum1(round: partida.roundT1)
+            
+            if(partida.checkEndGame()) {
+                inAnimate = true
+                animate()
+                
+            } else {
+                refreshScores()
+            }
+        }
+    }
+    
+    @IBAction func lessTeam1(_ sender: Any) {
+        if !(inAnimate) {
+            partida.roundT1 = partida.sub1(round: partida.roundT1)
+            
+                if(partida.checkEndGame()) {
+                    inAnimate = true
+                    animate()
+                    
+                } else {
+                    refreshScores()
+                }
+        }
+    }
+    
+    @IBAction func addTeam2(_ sender: Any) {
+        if !(inAnimate) {
+            partida.roundT2 = partida.sum1(round: partida.roundT2)
+            
+            if(partida.checkEndGame()) {
+                inAnimate = true
+                animate()
+                
+            } else {
+                refreshScores()
+            }
+        }
+    }
+    
+    @IBAction func lessTeam2(_ sender: Any) {
+        if !(inAnimate) {
+            partida.roundT2 = partida.sub1(round: partida.roundT2)
+            
+            if(partida.checkEndGame()) {
+                inAnimate = true
+                animate()
+                
+            } else {
+                refreshScores()
+            }
+        }
+    }
+    
+    
     @IBAction func speachAction(_ sender: Any) {
         speechAction()
     }
@@ -128,7 +185,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
-        if !(inAnimate) {
+        if !(inAnimate || defaults.bool(forKey: "ShowButtons")) {
             
             if gesture.direction == UISwipeGestureRecognizer.Direction.up {
                 if(gesture.location(in: backGoundImg).x < backGoundImg.frame.size.width/2) {
@@ -166,7 +223,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     }
     
     @objc func tap (_ gesture:UITapGestureRecognizer) {
-        if !(inAnimate) {
+        if !(inAnimate || defaults.bool(forKey: "ShowButtons")) {
             if(gesture.location(in: nil).x < backGoundImg.frame.size.width/2) {
                 partida.roundT1 = partida.sum1(round: partida.roundT1)
             } else {
@@ -427,7 +484,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
                 self.synth.speak(myUtterance)
                 
             case 2:
-                myUtterance = AVSpeechUtterance(string: "truquei e ta trucado.. quem eh o marreco que ficou melado??")
+                myUtterance = AVSpeechUtterance(string: "Trururururururuco")
                 
                 myUtterance.voice = AVSpeechSynthesisVoice(language: self.defaults.string(forKey: "LanguageVoice") ?? "pt-BR")
                 myUtterance.rate = self.defaults.float(forKey: "rateValue")
