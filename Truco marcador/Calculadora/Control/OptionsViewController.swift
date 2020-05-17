@@ -22,6 +22,15 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var switchButtonsShow: UISwitch!
     
     //MARK: - Actions
+    @IBAction func dismissView(_ sender: Any) {
+        self.atualizeNames()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func actionSwitch(_ sender: Any) {
         if(switchButtonsShow.isOn){
             defaults.set(true, forKey: "ShowButtons")
@@ -31,8 +40,9 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    @IBAction func suecaMKT(_ sender: Any) {
-        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1491372792?mt=8&uo=4"
+    // Marketplace
+    @IBAction func walletMKT(_ sender: Any) {
+        let urlStr = "https://amzn.to/2y8TJ09"
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
             
@@ -41,8 +51,17 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    @IBAction func calculatorMKT(_ sender: Any) {
-        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1479873340"
+    @IBAction func sunglassMKT(_ sender: Any) {
+        let urlStr = "https://amzn.to/2y7vnUn"
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+            
+        } else {
+            UIApplication.shared.openURL(URL(string: urlStr)!)
+        }
+    }
+    @IBAction func watchMKT(_ sender: Any) {
+        let urlStr = "https://amzn.to/2T9LLv6"
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
             
@@ -51,8 +70,8 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    @IBAction func foguetinhoMKT(_ sender: Any) {
-        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1479692515"
+    @IBAction func maskMkt(_ sender: Any) {
+        let urlStr = "https://amzn.to/2y7vf7l"
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
             
@@ -61,8 +80,10 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    @IBAction func dispensadoMKT(_ sender: Any) {
-        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1508371263"
+    // Credredits
+    @IBAction func iconCredit(_ sender: Any) {
+        let urlStr = "https://www.freepik.com/free-photos-vectors"
+        
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
             
@@ -143,19 +164,6 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func dismissView(_ sender: Any) {
-        self.atualizeNames()
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancelView(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     func atualizeNames() {
         setUsersDefault(newUsTeamName: usTeamTextBox.text ?? "", newTheyTeamName: theyTeamTextBox.text ?? "", newMaxPoints: maxPointsTextBox.text ?? "12")
     }
@@ -202,10 +210,15 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         return ratingColdShow
     }
     
+//    MARK: - Style
     func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
         
         let imageLayer = viewlayer
         imageLayer.cornerRadius = CGFloat(cornerRadius)
         imageLayer.masksToBounds = true
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
