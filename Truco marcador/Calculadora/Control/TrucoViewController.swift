@@ -581,11 +581,11 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
 //    MARK: - ADs
     
     func setupAds() {
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
+//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
         bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
         addBannerViewToView(bannerView)
         
-        bannerView.adUnitID = "ca-app-pub-8858389345934911/9257029729"
+        bannerView.adUnitID = "ca-app-pub-8858389345934911/5265350806"
         bannerView.rootViewController = self
         
         bannerView.load(GADRequest())

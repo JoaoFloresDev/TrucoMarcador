@@ -51,8 +51,8 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    @IBAction func sunglassMKT(_ sender: Any) {
-        let urlStr = "https://amzn.to/2y7vnUn"
+    @IBAction func decksMKT(_ sender: Any) {
+        let urlStr = "https://amzn.to/2zJrCoC"
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
             

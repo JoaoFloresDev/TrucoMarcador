@@ -625,7 +625,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 36;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -634,8 +634,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoMarcador;
+				MARKETING_VERSION = 26.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -648,7 +648,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 36;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -657,8 +657,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoMarcador;
+				MARKETING_VERSION = 26.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
