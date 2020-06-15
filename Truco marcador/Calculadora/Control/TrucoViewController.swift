@@ -53,6 +53,7 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     @IBOutlet var LabelsTutorial: [UILabel]!
     
     @IBOutlet weak var buttonTutorial: UIButton!
+    @IBOutlet weak var homeButton: UIButton!
     
     //    labels rounds and games
     @IBOutlet weak var roundTeam1: UILabel!
@@ -146,7 +147,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         refreshScores()
         refreshRounds()
         setupGestures()
-        setupAds()
         cropButtonImg()
         
         if(defaults.bool(forKey: "ShowButtons")) {
@@ -168,6 +168,12 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
             buttonsPointsTeam1.alpha = 0
             buttonsPointsTeam2.alpha = 0
         }
+        setupAds()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        atualizeNamesTeams()
     }
     
     //   MARK: - GESTURES
@@ -440,11 +446,6 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         theyTeamName.text = defaults.string(forKey: "theyTeamName") ?? "Eles"
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        atualizeNamesTeams()
-    }
-    
     func rateApp() {
         if #available(iOS 10.3, *) {
 
@@ -581,15 +582,28 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
 //    MARK: - ADs
     
     func setupAds() {
-//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
-        bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
-        addBannerViewToView(bannerView)
-        
-        bannerView.adUnitID = "ca-app-pub-8858389345934911/5265350806"
-        bannerView.rootViewController = self
-        
-        bannerView.load(GADRequest())
-        bannerView.delegate = self
+        if(RazeFaceProducts.store.isProductPurchased("NoAds") || (UserDefaults.standard.object(forKey: "NoAds") != nil)) {
+            if let banner = bannerView {
+                banner.removeFromSuperview()
+            }
+            
+            if let mktPlace = bannerVIewPlaceHolder {
+                mktPlace.removeFromSuperview()
+            }
+            
+            let margins = view.layoutMarginsGuide
+            homeButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -10).isActive = true
+        }
+        else {
+            bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
+            addBannerViewToView(bannerView)
+            
+            bannerView.adUnitID = "ca-app-pub-8858389345934911/5265350806"
+            bannerView.rootViewController = self
+            
+            bannerView.load(GADRequest())
+            bannerView.delegate = self
+        }
     }
     
     func addBannerViewToView(_ bannerView: GADBannerView) {

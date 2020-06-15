@@ -29,115 +29,150 @@
 import UIKit
 import StoreKit
 
-class MasterViewController: UITableViewController {
-  
+class MasterViewController: UIViewController {
     
-    @IBOutlet weak var loadingShow: UIActivityIndicatorView!
+    //    MARK: - Variables
+    var products: [SKProduct] = []
+    var timerLoad: Timer!
+    static let priceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        
+        formatter.formatterBehavior = .behavior10_4
+        formatter.numberStyle = .currency
+        
+        return formatter
+    }()
+    
+    //    MARK: - IBOutlets
+    
+    @IBOutlet weak var buyLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var teste: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var buttonBuy: UIButton!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    
+    //    MARK: - IBAction
     @IBAction func dismissView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-  
-  var products: [SKProduct] = []
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        loadingShow.startAnimating()
-//        loadingShow.alpha = 1
-//    }
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    title = "Produtos"
+    @IBAction func buyPressed(_ sender: Any) {
+        RazeFaceProducts.store.buyProduct(self.products[0])
+        startLoading()
+        timerLoad = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.loadingPlaying), userInfo: nil, repeats: false)
+        
+        confirmCheckmark()
+    }
     
-    refreshControl = UIRefreshControl()
-    refreshControl?.addTarget(self, action: #selector(MasterViewController.reload), for: .valueChanged)
+    @IBAction func restorePressed(_ sender: Any) {
+        RazeFaceProducts.store.restorePurchases()
+        startLoading()
+        timerLoad = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.loadingPlaying), userInfo: nil, repeats: false)
+        confirmCheckmark()
+    }
     
-    let restoreButton = UIBarButtonItem(title: "Restaurar",
-                                        style: .plain,
-                                        target: self,
-                                        action: #selector(MasterViewController.restoreTapped(_:)))
-    navigationItem.rightBarButtonItem = restoreButton
+        //    MARK: - UI
+    @objc func loadingPlaying() {
+        stopLoading()
+    }
     
-    NotificationCenter.default.addObserver(self, selector: #selector(MasterViewController.handlePurchaseNotification(_:)),
-                                           name: .IAPHelperPurchaseNotification,
-                                           object: nil)
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    reload()
-  }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        if RazeFaceProducts.store.isProductPurchased("NoAdds") {
-            print("Comprado")
-            UserDefaults.standard.set("Purshed", forKey:"NoAdds")
+    func confirmCheckmark() {
+        print("passando")
+        print(UserDefaults.standard.object(forKey: "NoAds"))
+        DispatchQueue.main.async {
+        if(RazeFaceProducts.store.isProductPurchased("NoAds") || (UserDefaults.standard.object(forKey: "NoAds") != nil)) {
+                print("comprado")
+                self.buyLabel.text = "   ✓✓✓"
+                UserDefaults.standard.set(true, forKey:"NoAds")
+        }
         }
     }
-  
-    @IBOutlet weak var teste: UILabel!
-    @objc func reload() {
-    products = []
     
-    tableView.reloadData()
+    //    MARK: - Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
     
-    RazeFaceProducts.store.requestProducts{ [weak self] success, products in
-      guard let self = self else { return }
-      if success {
-        self.products = products!
-        sleep(30)
-        self.teste.text = self.products[0].productIdentifier
-//        self.tableView.reloadData()
-      }
+        NotificationCenter.default.addObserver(self, selector: #selector(MasterViewController.handlePurchaseNotification(_:)),
+                                               name: .IAPHelperPurchaseNotification,
+                                               object: nil)
         
-//      self.refreshControl?.endRefreshing()
-    }
-  }
-  
-  @objc func restoreTapped(_ sender: AnyObject) {
-    RazeFaceProducts.store.restorePurchases()
-  }
-
-  @objc func handlePurchaseNotification(_ notification: Notification) {
-    guard
-      let productID = notification.object as? String,
-      let index = products.index(where: { product -> Bool in
-        product.productIdentifier == productID
-      })
-    else { return }
-
-    tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
-  }
-}
-
-// MARK: - UITableViewDataSource
-
-extension MasterViewController {
-  
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if(products.count > 0) {
-        loadingShow.stopAnimating()
-        loadingShow.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        loadingShow.alpha = 0
-    }
-    return products.count
-  }
-
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-    
-    let product = products[(indexPath as NSIndexPath).row]
-    
-    cell.textLabel?.text = product.localizedTitle
-//    cell.buyButtonHandler = { product in
-//      RazeFaceProducts.store.buyProduct(product)
-//    }
-    
-    if(loadingShow.alpha > 0) {
-        loadingShow.stopAnimating()
-        loadingShow.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        loadingShow.alpha = 0
+        confirmCheckmark()
     }
     
-    return cell
-  }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reload()
+        confirmCheckmark()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reload()
+        confirmCheckmark()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        reload()
+        confirmCheckmark()
+    }
+    
+    @objc func handlePurchaseNotification(_ notification: Notification) {
+        guard
+            let productID = notification.object as? String,
+            let _ = products.firstIndex(where: { product -> Bool in
+                product.productIdentifier == productID
+            })
+            else { return }
+        
+        confirmCheckmark()
+    }
+    //    MARK: - UI
+    func startLoading() {
+        loadingView.alpha = 1
+        loadingView.startAnimating()
+    }
+    
+    func stopLoading() {
+        loadingView.alpha = 0
+        loadingView.stopAnimating()
+    }
+    
+    //    MARK: - Data Management
+    @objc func reload() {
+        products = []
+        
+        RazeFaceProducts.store.requestProducts{ [weak self] success, products in
+            guard let self = self else { return }
+            if success {
+                self.products = products!
+                
+                DispatchQueue.main.async {
+                    self.teste.text = self.products[0].localizedTitle
+                    self.teste.textColor = UIColor.black
+                    
+                    self.descriptionLabel.text = self.products[0].localizedDescription
+                    self.descriptionLabel.textColor = UIColor.black
+                    
+                    MasterViewController.self.priceFormatter.locale = self.products[0].priceLocale
+                    self.priceLabel.text = MasterViewController.self.priceFormatter.string(from: self.products[0].price)!
+                    
+                }
+            }
+            else {
+                if products?[0] != nil {
+                    self.teste.text = self.products[0].localizedTitle
+                    self.teste.textColor = UIColor.black
+                    
+                    self.descriptionLabel.text = self.products[0].localizedDescription
+                    self.descriptionLabel.textColor = UIColor.black
+                    
+                    MasterViewController.self.priceFormatter.locale = self.products[0].priceLocale
+                    self.priceLabel.text = MasterViewController.self.priceFormatter.string(from: self.products[0].price)!
+                }
+            }
+        }
+        
+        confirmCheckmark()
+    }
 }
