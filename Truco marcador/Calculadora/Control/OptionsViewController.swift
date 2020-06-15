@@ -21,6 +21,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var maxPointsTextBox: UITextField!
     @IBOutlet weak var switchButtonsShow: UISwitch!
     
+    @IBOutlet weak var upgradeButton: UIButton!
     //MARK: - Actions
     @IBAction func dismissView(_ sender: Any) {
         self.atualizeNames()
@@ -40,45 +41,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    // Marketplace
-    @IBAction func walletMKT(_ sender: Any) {
-        let urlStr = "https://amzn.to/2y8TJ09"
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
-            
-        } else {
-            UIApplication.shared.openURL(URL(string: urlStr)!)
-        }
-    }
     
-    @IBAction func decksMKT(_ sender: Any) {
-        let urlStr = "https://amzn.to/2zJrCoC"
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
-            
-        } else {
-            UIApplication.shared.openURL(URL(string: urlStr)!)
-        }
-    }
-    @IBAction func watchMKT(_ sender: Any) {
-        let urlStr = "https://amzn.to/2T9LLv6"
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
-            
-        } else {
-            UIApplication.shared.openURL(URL(string: urlStr)!)
-        }
-    }
-    
-    @IBAction func maskMkt(_ sender: Any) {
-        let urlStr = "https://amzn.to/2y7vf7l"
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
-            
-        } else {
-            UIApplication.shared.openURL(URL(string: urlStr)!)
-        }
-    }
     
     // Credredits
     @IBAction func iconCredit(_ sender: Any) {
@@ -98,6 +61,8 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         if(checkFirsGame()) {
             populateDefault()
         }
+        
+        upgradeButton.layer.cornerRadius = 10
         
         usTeamTextBox.placeholder = defaults.string(forKey: "usTeamName") ?? "Nós"
         theyTeamTextBox.placeholder = defaults.string(forKey: "theyTeamName") ?? "Eles"
