@@ -20,6 +20,7 @@
 		C4159DE123A8206D0021F5C5 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */; };
 		C4159DE423A828FC0021F5C5 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE323A828FC0021F5C5 /* KeyboardAvoiding.swift */; };
 		C4159DE623A829070021F5C5 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */; };
+		C422B7BE2498420C00E6BB9F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422B7BD2498420C00E6BB9F /* WelcomeViewController.swift */; };
 		C48157BF249720E900469670 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48157BA249720E700469670 /* DetailViewController.swift */; };
 		C48157C0249720E900469670 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48157BB249720E700469670 /* ProductCell.swift */; };
 		C48157C1249720E900469670 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48157BC249720E800469670 /* IAPHelper.swift */; };
@@ -69,6 +70,7 @@
 		C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		C4159DE323A828FC0021F5C5 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
+		C422B7BD2498420C00E6BB9F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C48157BA249720E700469670 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C48157BB249720E700469670 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		C48157BC249720E800469670 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
@@ -138,27 +140,27 @@
 		3D6EA1042237EBE500174399 /* Calculadora */ = {
 			isa = PBXGroup;
 			children = (
+				3D6EA1052237EBE500174399 /* AppDelegate.swift */,
 				C4159DE223A828ED0021F5C5 /* Utilities */,
-				3D7C50B3225151DC00535F55 /* Model */,
+				3D7C50B3225151DC00535F55 /* Purchase */,
 				3D7C50B4225151E200535F55 /* View */,
 				3D7C50B5225151E900535F55 /* Control */,
-				3D6EA1052237EBE500174399 /* AppDelegate.swift */,
+				C422B7BC249838EB00E6BB9F /* Classes */,
 				3D6EA1112237EBE900174399 /* Info.plist */,
 			);
 			path = Calculadora;
 			sourceTree = "<group>";
 		};
-		3D7C50B3225151DC00535F55 /* Model */ = {
+		3D7C50B3225151DC00535F55 /* Purchase */ = {
 			isa = PBXGroup;
 			children = (
 				C48157BA249720E700469670 /* DetailViewController.swift */,
 				C48157BC249720E800469670 /* IAPHelper.swift */,
-				C48157BE249720E900469670 /* MasterViewController.swift */,
 				C48157BB249720E700469670 /* ProductCell.swift */,
 				C48157BD249720E800469670 /* RazeFaceProducts.swift */,
 				3D6EA1192238362800174399 /* Calculator.swift */,
 			);
-			path = Model;
+			path = Purchase;
 			sourceTree = "<group>";
 		};
 		3D7C50B4225151E200535F55 /* View */ = {
@@ -174,11 +176,11 @@
 		3D7C50B5225151E900535F55 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				C48157BE249720E900469670 /* MasterViewController.swift */,
 				3D6EA1072237EBE500174399 /* TrucoViewController.swift */,
 				C4885CF3236CBADC004B1556 /* CardsViewController.swift */,
-				C4885CF0236C5568004B1556 /* PointsClass.swift */,
-				C4159DDE23A81D0B0021F5C5 /* Functions.swift */,
 				C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */,
+				C422B7BD2498420C00E6BB9F /* WelcomeViewController.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -212,6 +214,15 @@
 				C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C422B7BC249838EB00E6BB9F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C4885CF0236C5568004B1556 /* PointsClass.swift */,
+				C4159DDE23A81D0B0021F5C5 /* Functions.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		C4F3826E23CDED6300E373EA /* Truco MarcadorMockTests */ = {
@@ -461,6 +472,7 @@
 				C4159DE423A828FC0021F5C5 /* KeyboardAvoiding.swift in Sources */,
 				C4159DE123A8206D0021F5C5 /* OptionsViewController.swift in Sources */,
 				C48157C1249720E900469670 /* IAPHelper.swift in Sources */,
+				C422B7BE2498420C00E6BB9F /* WelcomeViewController.swift in Sources */,
 				3D6EA1062237EBE500174399 /* AppDelegate.swift in Sources */,
 				C4159DDF23A81D0B0021F5C5 /* Functions.swift in Sources */,
 				C4159DE623A829070021F5C5 /* KeyboardDismissingView.swift in Sources */,
@@ -645,7 +657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 36.1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -654,7 +666,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 26.0.0;
+				MARKETING_VERSION = 26.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;
@@ -668,7 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 36.1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
@@ -677,7 +689,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 26.0.0;
+				MARKETING_VERSION = 26.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;

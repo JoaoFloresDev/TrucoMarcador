@@ -135,6 +135,8 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     
     //   MARK: - LIFE CYCLE
     override func viewDidLoad() {
+
+        UserDefaults.standard.set(true, forKey:"FirtsUse")
         
         cropBounds(viewlayer: bannerVIewPlaceHolder.layer, cornerRadius: 20)
         
@@ -148,6 +150,10 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
         refreshRounds()
         setupGestures()
         cropButtonImg()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         if(defaults.bool(forKey: "ShowButtons")) {
             buttonsPointsTeam1.alpha = 1
@@ -157,23 +163,9 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
             buttonsPointsTeam1.alpha = 0
             buttonsPointsTeam2.alpha = 0
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if(defaults.bool(forKey: "ShowButtons")) {
-            buttonsPointsTeam1.alpha = 1
-            buttonsPointsTeam2.alpha = 1
-        }
-        else {
-            buttonsPointsTeam1.alpha = 0
-            buttonsPointsTeam2.alpha = 0
-        }
-        setupAds()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        
         atualizeNamesTeams()
+        setupAds()
     }
     
     //   MARK: - GESTURES

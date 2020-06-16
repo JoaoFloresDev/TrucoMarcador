@@ -78,8 +78,6 @@ class MasterViewController: UIViewController {
     }
     
     func confirmCheckmark() {
-        print("passando")
-        print(UserDefaults.standard.object(forKey: "NoAds"))
         DispatchQueue.main.async {
         if(RazeFaceProducts.store.isProductPurchased("NoAds") || (UserDefaults.standard.object(forKey: "NoAds") != nil)) {
                 print("comprado")
