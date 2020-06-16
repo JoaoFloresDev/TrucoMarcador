@@ -60,7 +60,7 @@ class MasterViewController: UIViewController {
     @IBAction func buyPressed(_ sender: Any) {
         RazeFaceProducts.store.buyProduct(self.products[0])
         startLoading()
-        timerLoad = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.loadingPlaying), userInfo: nil, repeats: false)
+        timerLoad = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.loadingPlaying), userInfo: nil, repeats: false)
         
         confirmCheckmark()
     }
@@ -72,25 +72,25 @@ class MasterViewController: UIViewController {
         confirmCheckmark()
     }
     
-        //    MARK: - UI
+    //    MARK: - UI
     @objc func loadingPlaying() {
         stopLoading()
     }
     
     func confirmCheckmark() {
         DispatchQueue.main.async {
-        if(RazeFaceProducts.store.isProductPurchased("NoAds") || (UserDefaults.standard.object(forKey: "NoAds") != nil)) {
-                print("comprado")
+            if(RazeFaceProducts.store.isProductPurchased("NoAds") || (UserDefaults.standard.object(forKey: "NoAds") != nil)) {
+                self.stopLoading()
                 self.buyLabel.text = "   ✓✓✓"
                 UserDefaults.standard.set(true, forKey:"NoAds")
-        }
+            }
         }
     }
     
     //    MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         NotificationCenter.default.addObserver(self, selector: #selector(MasterViewController.handlePurchaseNotification(_:)),
                                                name: .IAPHelperPurchaseNotification,
                                                object: nil)

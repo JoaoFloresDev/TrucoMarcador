@@ -51,8 +51,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHM-RR-som">
-                                        <rect key="frame" x="10" y="602" width="354" height="24"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <rect key="frame" x="10" y="164" width="354" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -65,7 +65,6 @@
                                 <constraints>
                                     <constraint firstItem="xXD-VL-nTe" firstAttribute="centerX" secondItem="owL-9U-gww" secondAttribute="centerX" id="5PT-oL-oz4"/>
                                     <constraint firstAttribute="trailing" secondItem="17l-bT-VB9" secondAttribute="trailing" id="8RL-HZ-L2s"/>
-                                    <constraint firstItem="kLz-vd-zbi" firstAttribute="top" secondItem="kHM-RR-som" secondAttribute="bottom" constant="20" id="GOM-6s-ozJ"/>
                                     <constraint firstItem="xXD-VL-nTe" firstAttribute="leading" secondItem="e5S-nV-5gZ" secondAttribute="leading" constant="10" id="HzR-So-cy5"/>
                                     <constraint firstItem="17l-bT-VB9" firstAttribute="top" secondItem="ou7-0T-Uoz" secondAttribute="bottom" id="MEZ-Gi-9PU"/>
                                     <constraint firstItem="xXD-VL-nTe" firstAttribute="top" secondItem="owL-9U-gww" secondAttribute="bottom" id="OcD-YT-9rs"/>
@@ -81,6 +80,7 @@
                                     <constraint firstItem="kLz-vd-zbi" firstAttribute="centerX" secondItem="owL-9U-gww" secondAttribute="centerX" id="fhZ-IX-WHW"/>
                                     <constraint firstAttribute="trailing" secondItem="ou7-0T-Uoz" secondAttribute="trailing" constant="10" id="hfg-s9-kIG"/>
                                     <constraint firstItem="ou7-0T-Uoz" firstAttribute="top" secondItem="e5S-nV-5gZ" secondAttribute="top" id="jFF-j8-o63"/>
+                                    <constraint firstItem="kHM-RR-som" firstAttribute="top" secondItem="xXD-VL-nTe" secondAttribute="bottom" constant="30" id="jLv-He-47Y"/>
                                     <constraint firstItem="kHM-RR-som" firstAttribute="leading" secondItem="e5S-nV-5gZ" secondAttribute="leading" constant="10" id="k2v-ny-oSx"/>
                                     <constraint firstItem="owL-9U-gww" firstAttribute="leading" secondItem="e5S-nV-5gZ" secondAttribute="leading" constant="10" id="riF-Xo-eUo"/>
                                     <constraint firstItem="kHM-RR-som" firstAttribute="centerX" secondItem="owL-9U-gww" secondAttribute="centerX" id="sFc-Ln-lMq"/>
@@ -137,6 +137,7 @@
                         <outlet property="priceLabel" destination="kHM-RR-som" id="R6l-kl-PRN"/>
                         <outlet property="viewPro" destination="e5S-nV-5gZ" id="pqo-Vd-0jw"/>
                         <outlet property="viewTest" destination="rmX-tM-1NL" id="Tv0-1i-alW"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showGame" id="7bY-rr-gxF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPt-Px-leo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -146,7 +147,7 @@
         <!--Truco View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="TrucoViewController" customModule="Truco_Marcador" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="TrucoViewController" customModule="Truco_Marcador" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1698,6 +1699,9 @@
             <point key="canvasLocation" x="1993" y="27"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7bY-rr-gxF"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="add" width="512" height="512"/>
         <image name="copas" width="256" height="256"/>
