@@ -12,7 +12,7 @@ import AVFoundation
 import QuartzCore
 import GoogleMobileAds
 
-class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBannerViewDelegate {
+class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBannerViewDelegate, GADInterstitialDelegate {
     
     var bannerView: GADBannerView!
     
@@ -35,6 +35,21 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     var regularFont = 60
     var inAnimate = true
     var rateControll = 0
+    
+    var firstReset = 0
+    //    ADS
+    var interstitial: GADInterstitial!
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+      var interstitial = GADInterstitial(adUnitID: "ca-app-pub-8858389345934911/1816921732")
+      interstitial.delegate = self
+      interstitial.load(GADRequest())
+      return interstitial
+    }
+
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+      interstitial = createAndLoadInterstitial()
+    }
     
     //    MARK: -  IBOutlet
     @IBOutlet weak var buttonsPointsTeam1: UIView!
@@ -137,6 +152,15 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
     override func viewDidLoad() {
 
         UserDefaults.standard.set(true, forKey:"FirtsUse")
+        
+        //        ADS
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-8858389345934911/1816921732")
+        let request = GADRequest()
+        interstitial.load(request)
+        interstitial.delegate = self
+        
+        interstitial = createAndLoadInterstitial()
+        
         
         cropBounds(viewlayer: bannerVIewPlaceHolder.layer, cornerRadius: 20)
         
@@ -340,7 +364,20 @@ class TrucoViewController: UIViewController, AVSpeechSynthesizerDelegate, GADBan
             self.refreshAll()
             
             if(UserDefaults.standard.bool(forKey: "noFirstUse")) {
-                self.rateApp()
+                
+                if(RazeFaceProducts.store.isProductPurchased("NoAds") || (UserDefaults.standard.object(forKey: "NoAds") != nil)) {
+                    print("comprado")
+                }
+                else if(self.firstReset == 2) {
+                    if self.interstitial.isReady {
+                        self.interstitial.present(fromRootViewController: self)
+                    }
+                }
+                else if (self.firstReset == 0){
+                    self.rateApp()
+                }
+                
+                self.firstReset += 1
             } else {
                 UserDefaults.standard.set (true, forKey: "noFirstUse")
             }

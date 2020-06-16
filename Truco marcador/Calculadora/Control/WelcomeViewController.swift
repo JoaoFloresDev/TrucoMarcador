@@ -76,8 +76,8 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewPro.layer.cornerRadius = 10
-        viewTest.layer.cornerRadius = 10
+        viewPro.layer.cornerRadius = 20
+        viewTest.layer.cornerRadius = 20
         
         NotificationCenter.default.addObserver(self, selector: #selector(MasterViewController.handlePurchaseNotification(_:)),
                                                name: .IAPHelperPurchaseNotification,
@@ -153,5 +153,9 @@ class WelcomeViewController: UIViewController {
         }
         
         confirmCheckmark()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
