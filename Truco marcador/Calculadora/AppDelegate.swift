@@ -13,14 +13,24 @@ import GoogleMobileAds
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var defaults = UserDefaults.standard
-    
+
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
-        
-        
+        // Override point for customization after application launch.
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
+//        select root
+        if (UserDefaults.standard.object(forKey: "FirtsUse") == nil) {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginSignupVC")
+
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+
         return true
     }
 

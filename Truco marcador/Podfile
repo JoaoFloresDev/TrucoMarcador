@@ -7,10 +7,7 @@ target 'Truco Marcador' do
 
   # Pods for Truco Marcador
   pod "Google-Mobile-Ads-SDK"
-pod 'SwiftyStoreKit'
-pod "InAppPurchase"
-pod "InAppPurchase"
-pod 'MerchantKit'
+
   target 'Truco MarcadorMockTests' do
     inherit! :search_paths
     # Pods for testing

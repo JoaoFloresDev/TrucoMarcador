@@ -23,36 +23,28 @@ PODS:
   - "GoogleUtilities/NSData+zlib (6.5.2)"
   - GoogleUtilities/Reachability (6.5.2):
     - GoogleUtilities/Logger
-  - InAppPurchase (2.3.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - SwiftyStoreKit (0.15.0)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
-  - InAppPurchase
-  - SwiftyStoreKit
 
 SPEC REPOS:
   trunk:
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
-    - InAppPurchase
     - nanopb
-    - SwiftyStoreKit
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 7052557293c75c676db55feb707ace9b790f32c1
   GoogleAppMeasurement: e49be3954045b17d046f271b9cc1ec052bad9702
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
-  InAppPurchase: f9da9e54e145c2a3684ec642afc20ef9728a3129
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
 
-PODFILE CHECKSUM: de898f08d4eb26510ab8ed3371ba3f14ac953f79
+PODFILE CHECKSUM: 98ca5fd62572d23dabf53cacdb8f9e1877be5313
 
 COCOAPODS: 1.8.4

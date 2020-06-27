@@ -9,45 +9,21 @@
 
 import UIKit
 import Foundation
-import GoogleMobileAds
+import StoreKit
 
-class OptionsViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, GADRewardBasedVideoAdDelegate {
-    
+class OptionsViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     var defaults = UserDefaults.standard
-    var buyButtonHandler: ((_ product: SKProduct) -> Void)?
-    var products: [SKProduct] = []
-    var showAds = false
     
     //MARK: - OUTLETS
     @IBOutlet weak var usTeamTextBox: UITextField!
     @IBOutlet weak var theyTeamTextBox: UITextField!
     @IBOutlet weak var maxPointsTextBox: UITextField!
+    @IBOutlet weak var switchButtonsShow: UISwitch!
     
-    @IBOutlet weak var labelRemoveAds: UILabel!
-    
-    //MARK: - IBAction
-    @IBAction func suecaMKT(_ sender: Any) {
-        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1491372792?mt=8&uo=4"
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
-            
-        } else {
-            UIApplication.shared.openURL(URL(string: urlStr)!)
-        }
-    }
-    
-    @IBAction func dispensadoMKT(_ sender: Any) {
-        let urlStr = "itms-apps://itunes.apple.com/app/apple-store/id1508371263"
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
-            
-        } else {
-            UIApplication.shared.openURL(URL(string: urlStr)!)
-        }
-    }
-    
-    @IBAction func savaUpdatesAndCancel(_ sender: Any) {
+    @IBOutlet weak var upgradeButton: UIButton!
+    //MARK: - Actions
+    @IBAction func dismissView(_ sender: Any) {
         self.atualizeNames()
         self.dismiss(animated: true, completion: nil)
     }
@@ -56,21 +32,26 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func seeAds(_ sender: Any) {
-        let alert = UIAlertController(title: "Assista até o final", message: "Assista o vídeo até o final para receber recompensa", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            self.ConfirmationReset()
-
-        }))
-        self.present(alert, animated: true, completion: nil)
+    @IBAction func actionSwitch(_ sender: Any) {
+        if(switchButtonsShow.isOn){
+            defaults.set(true, forKey: "ShowButtons")
+        }
+        else {
+            defaults.set(false, forKey: "ShowButtons")
+        }
     }
     
-    func ConfirmationReset() {
-        showAds = true
-        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
-          GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-        } else { GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-            withAdUnitID: "ca-app-pub-8858389345934911/5418678877")
+    
+    
+    // Credredits
+    @IBAction func iconCredit(_ sender: Any) {
+        let urlStr = "https://www.freepik.com/free-photos-vectors"
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+            
+        } else {
+            UIApplication.shared.openURL(URL(string: urlStr)!)
         }
     }
     
@@ -80,6 +61,9 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         if(checkFirsGame()) {
             populateDefault()
         }
+        
+        upgradeButton.layer.cornerRadius = 10
+        
         usTeamTextBox.placeholder = defaults.string(forKey: "usTeamName") ?? "Nós"
         theyTeamTextBox.placeholder = defaults.string(forKey: "theyTeamName") ?? "Eles"
         maxPointsTextBox.placeholder = String(defaults.integer(forKey: "maxPoints"))
@@ -93,14 +77,7 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         self.usTeamTextBox.delegate = self
         self.theyTeamTextBox.delegate = self
         self.maxPointsTextBox.delegate = self
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["bc9b21ec199465e69782ace1e97f5b79"]
-    GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-8858389345934911/5418678877")
-        GADRewardBasedVideoAd.sharedInstance().delegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        showAds = false
+        switchButtonsShow.setOn(defaults.bool(forKey: "ShowButtons"), animated: true)
     }
     
     //MARK: - METHODS
@@ -152,10 +129,6 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         super.didReceiveMemoryWarning()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     func atualizeNames() {
         setUsersDefault(newUsTeamName: usTeamTextBox.text ?? "", newTheyTeamName: theyTeamTextBox.text ?? "", newMaxPoints: maxPointsTextBox.text ?? "12")
     }
@@ -202,46 +175,15 @@ class OptionsViewController: UIViewController, UINavigationControllerDelegate, U
         return ratingColdShow
     }
     
+//    MARK: - Style
     func cropBounds(viewlayer: CALayer, cornerRadius: Float) {
+        
         let imageLayer = viewlayer
         imageLayer.cornerRadius = CGFloat(cornerRadius)
         imageLayer.masksToBounds = true
     }
     
-//    MARK: - ADS
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-        didRewardUserWith reward: GADAdReward) {
-      print("Reward received with currency: \(reward.type), amount \(reward.amount).")
-    }
-
-    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
-      print("Reward based video ad is received.")
-        if(showAds) {
-            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-        }
-    }
-
-    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("A equipe Truco Marcador agradece pela ajuda! bom jogo!")
-        print("------------------------------------")
-        
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        let result = formatter.string(from: date)
-        print(result)
-        showAds = false
-    }
-
-    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-      print("Você fechou o vídeo, é preciso ver até o fim")
-        print("------------------------------------")
-        showAds = false
-    }
-
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-        didFailToLoadWithError error: Error) {
-      print("Falha ao carregar, tente novamente")
-        showAds = false
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

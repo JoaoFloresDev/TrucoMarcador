@@ -20,10 +20,15 @@
 		C4159DE123A8206D0021F5C5 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */; };
 		C4159DE423A828FC0021F5C5 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE323A828FC0021F5C5 /* KeyboardAvoiding.swift */; };
 		C4159DE623A829070021F5C5 /* KeyboardDismissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */; };
-		C4802DD1245FCA7B001540B4 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4802DD0245FCA7B001540B4 /* NetworkActivityIndicatorManager.swift */; };
+		C41E33DA2498629E009EF468 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41E33D92498629E009EF468 /* StoreKit.framework */; };
+		C422B7BE2498420C00E6BB9F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422B7BD2498420C00E6BB9F /* WelcomeViewController.swift */; };
+		C48157BF249720E900469670 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48157BA249720E700469670 /* DetailViewController.swift */; };
+		C48157C0249720E900469670 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48157BB249720E700469670 /* ProductCell.swift */; };
+		C48157C1249720E900469670 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48157BC249720E800469670 /* IAPHelper.swift */; };
+		C48157C2249720E900469670 /* RazeFaceProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48157BD249720E800469670 /* RazeFaceProducts.swift */; };
+		C48157C3249720E900469670 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48157BE249720E900469670 /* MasterViewController.swift */; };
 		C4885CF1236C5568004B1556 /* PointsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF0236C5568004B1556 /* PointsClass.swift */; };
 		C4885CF5236CBADC004B1556 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4885CF3236CBADC004B1556 /* CardsViewController.swift */; };
-		C4B220FA24565704003C656E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B220F924565704003C656E /* StoreKit.framework */; };
 		C4F3827023CDED6300E373EA /* Truco_MarcadorMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3826F23CDED6300E373EA /* Truco_MarcadorMockTests.swift */; };
 		E601187AC62B9C8C5FA0489D /* Pods_Truco_MarcadorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C630DAE393176A5034D2A0 /* Pods_Truco_MarcadorTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,11 +71,15 @@
 		C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		C4159DE323A828FC0021F5C5 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		C4159DE523A829070021F5C5 /* KeyboardDismissingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingView.swift; sourceTree = "<group>"; };
-		C4802DD0245FCA7B001540B4 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		C41E33D92498629E009EF468 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C422B7BD2498420C00E6BB9F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		C48157BA249720E700469670 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C48157BB249720E700469670 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		C48157BC249720E800469670 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		C48157BD249720E800469670 /* RazeFaceProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RazeFaceProducts.swift; sourceTree = "<group>"; };
+		C48157BE249720E900469670 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		C4885CF0236C5568004B1556 /* PointsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsClass.swift; sourceTree = "<group>"; };
 		C4885CF3236CBADC004B1556 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
-		C4B220F924565704003C656E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		C4EE900E245E4EF6005029DC /* Truco Marcador.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Truco Marcador.entitlements"; sourceTree = "<group>"; };
 		C4F3826D23CDED6300E373EA /* Truco MarcadorMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Truco MarcadorMockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F3826F23CDED6300E373EA /* Truco_MarcadorMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truco_MarcadorMockTests.swift; sourceTree = "<group>"; };
 		C4F3827123CDED6300E373EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,7 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBF9D1A1B5D8104DE0F83DE /* Pods_Truco_Marcador.framework in Frameworks */,
-				C4B220FA24565704003C656E /* StoreKit.framework in Frameworks */,
+				C41E33DA2498629E009EF468 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +121,6 @@
 		3D6EA0F92237EBE500174399 = {
 			isa = PBXGroup;
 			children = (
-				C4EE900E245E4EF6005029DC /* Truco Marcador.entitlements */,
 				3D6EA1042237EBE500174399 /* Calculadora */,
 				C407332323CCA43500C58CD1 /* Truco MarcadorTests */,
 				C4F3826E23CDED6300E373EA /* Truco MarcadorMockTests */,
@@ -135,28 +143,32 @@
 		3D6EA1042237EBE500174399 /* Calculadora */ = {
 			isa = PBXGroup;
 			children = (
+				3D6EA1052237EBE500174399 /* AppDelegate.swift */,
 				C4159DE223A828ED0021F5C5 /* Utilities */,
-				3D7C50B3225151DC00535F55 /* Model */,
+				3D7C50B3225151DC00535F55 /* Purchase */,
 				3D7C50B4225151E200535F55 /* View */,
 				3D7C50B5225151E900535F55 /* Control */,
-				3D6EA1052237EBE500174399 /* AppDelegate.swift */,
+				C422B7BC249838EB00E6BB9F /* Classes */,
 				3D6EA1112237EBE900174399 /* Info.plist */,
 			);
 			path = Calculadora;
 			sourceTree = "<group>";
 		};
-		3D7C50B3225151DC00535F55 /* Model */ = {
+		3D7C50B3225151DC00535F55 /* Purchase */ = {
 			isa = PBXGroup;
 			children = (
+				C48157BA249720E700469670 /* DetailViewController.swift */,
+				C48157BC249720E800469670 /* IAPHelper.swift */,
+				C48157BB249720E700469670 /* ProductCell.swift */,
+				C48157BD249720E800469670 /* RazeFaceProducts.swift */,
 				3D6EA1192238362800174399 /* Calculator.swift */,
 			);
-			path = Model;
+			path = Purchase;
 			sourceTree = "<group>";
 		};
 		3D7C50B4225151E200535F55 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4802DD0245FCA7B001540B4 /* NetworkActivityIndicatorManager.swift */,
 				3D6EA1092237EBE500174399 /* Main.storyboard */,
 				3D6EA10E2237EBE900174399 /* LaunchScreen.storyboard */,
 				3D6EA10C2237EBE900174399 /* Assets.xcassets */,
@@ -167,11 +179,11 @@
 		3D7C50B5225151E900535F55 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				C48157BE249720E900469670 /* MasterViewController.swift */,
 				3D6EA1072237EBE500174399 /* TrucoViewController.swift */,
 				C4885CF3236CBADC004B1556 /* CardsViewController.swift */,
-				C4885CF0236C5568004B1556 /* PointsClass.swift */,
-				C4159DDE23A81D0B0021F5C5 /* Functions.swift */,
 				C4159DE023A8206D0021F5C5 /* OptionsViewController.swift */,
+				C422B7BD2498420C00E6BB9F /* WelcomeViewController.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -207,6 +219,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		C422B7BC249838EB00E6BB9F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C4885CF0236C5568004B1556 /* PointsClass.swift */,
+				C4159DDE23A81D0B0021F5C5 /* Functions.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		C4F3826E23CDED6300E373EA /* Truco MarcadorMockTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +240,7 @@
 		CD8B9CCC4446894C5B15F5EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C4B220F924565704003C656E /* StoreKit.framework */,
+				C41E33D92498629E009EF468 /* StoreKit.framework */,
 				D45926A3B6591F83D0A3CEE6 /* Pods_Truco_Marcador.framework */,
 				D1447DC80C1A668F0654C655 /* Pods_Truco_MarcadorMockTests.framework */,
 				10C630DAE393176A5034D2A0 /* Pods_Truco_MarcadorTests.framework */,
@@ -450,15 +471,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D6EA1082237EBE500174399 /* TrucoViewController.swift in Sources */,
+				C48157C2249720E900469670 /* RazeFaceProducts.swift in Sources */,
+				C48157C0249720E900469670 /* ProductCell.swift in Sources */,
 				C4159DE423A828FC0021F5C5 /* KeyboardAvoiding.swift in Sources */,
 				C4159DE123A8206D0021F5C5 /* OptionsViewController.swift in Sources */,
+				C48157C1249720E900469670 /* IAPHelper.swift in Sources */,
+				C422B7BE2498420C00E6BB9F /* WelcomeViewController.swift in Sources */,
 				3D6EA1062237EBE500174399 /* AppDelegate.swift in Sources */,
 				C4159DDF23A81D0B0021F5C5 /* Functions.swift in Sources */,
 				C4159DE623A829070021F5C5 /* KeyboardDismissingView.swift in Sources */,
 				C4885CF5236CBADC004B1556 /* CardsViewController.swift in Sources */,
+				C48157BF249720E900469670 /* DetailViewController.swift in Sources */,
 				3D6EA11A2238362800174399 /* Calculator.swift in Sources */,
+				C48157C3249720E900469670 /* MasterViewController.swift in Sources */,
 				C4885CF1236C5568004B1556 /* PointsClass.swift in Sources */,
-				C4802DD1245FCA7B001540B4 /* NetworkActivityIndicatorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,18 +660,17 @@
 			baseConfigurationReference = B38CE0A830042517EF023F03 /* Pods-Truco Marcador.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Truco Marcador.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 39;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 24;
+				MARKETING_VERSION = 30.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;
@@ -658,18 +683,17 @@
 			baseConfigurationReference = 2BE4CF5986147C8CED4CD194 /* Pods-Truco Marcador.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Truco Marcador.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 39;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NZC6LC8NWM;
 				INFOPLIST_FILE = Calculadora/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 24;
+				MARKETING_VERSION = 30.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = joaoFlores.TrucoContador;
 				PRODUCT_NAME = "Truco Marcador";
 				SWIFT_VERSION = 5.0;
