@@ -1,6 +1,7 @@
-# TrucoMarcador
+# TrucoMarcador - iOS Swift
 
-Marcador de truco
+marker for truco matches, using draw and gesture detection.
+App also features Ads and in-app Purchase
 
 App Store: https://apps.apple.com/us/app/truco-marcador/id1486427751?l=pt&ls=1
 
